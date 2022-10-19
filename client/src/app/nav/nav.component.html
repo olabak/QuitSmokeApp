@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">QuitSmoke</a>
+
+          <div class="collapse navbar-collapse" id="navbarsExample07">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li>
+                <a class="nav-link">Motywacja</a>
+              </li>
+              <li>
+                <a class="nav-link">Symptomy</a>
+              </li>
+              <li>
+                <a class="nav-link">Osiągnięcia</a>
+              </li>
+              
+            </ul>
+          </div>
+
+          <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
+            <a class="dropdown-toggle text-light" dropdownToggle>Ważne informacje</a>
+            <div class="dropdown-menu" *dropdownMenu>
+              <a class="dropdown-item" >Jak zacząć?</a>
+              <a class="dropdown-item" >Metody walki z nałogiem</a>
+              <a class="dropdown-item" >Pomoc</a>
+            </div>
+          </div>
+
+
+            <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
+              <a class="dropdown-toggle text-light" dropdownToggle>Witaj!</a>
+              <div class="dropdown-menu mt-3" *dropdownMenu>
+                <a class="dropdown-item">Edytuj profil</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" (click)="logout()">Wyloguj</a>
+              </div>
+            </div>
+
+            <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplete="off">
+              <input 
+              name="username"
+              [(ngModel)]="model.username"
+              class="form-control me-2" type="text" placeholder="Username">
+              <input
+              name="password" 
+              [(ngModel)]="model.password"
+              class="form-control me-2" type="password" placeholder="Password">
+              <button class="btn btn-outline-success" type="submit">Login</button>
+            </form>
+          </div>
+  </div>
+
+</nav>
+
