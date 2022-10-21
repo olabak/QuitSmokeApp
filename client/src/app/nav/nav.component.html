@@ -3,35 +3,55 @@
       <div class="container-fluid">
           <a class="navbar-brand" href="#">QuitSmoke</a>
 
+          <!-- <div class="dropdown"  dropdown>
+            <a class="dropdown-toggle text-light" dropdownToggle>Porady</a>
+            <div class="dropdown-menu" *dropdownMenu>
+              <a class="dropdown-item" >Jak zacząć</a>
+              <a class="dropdown-item" >Krytyczne momenty</a>
+              <a class="dropdown-item" >Motywacja</a>
+            </div>
+          </div> -->
+
+          <!-- <div class="dropdown"  dropdown>
+            <a class="dropdown-toggle text-light" dropdownToggle>Wiedza</a>
+            <div class="dropdown-menu" *dropdownMenu>
+              <a class="dropdown-item" >Metody walki z nałogiem</a>
+              <a class="dropdown-item" >Symptomy odstawienne</a>
+              <a class="dropdown-item" >Skutki palenia</a>
+            </div>
+          </div> -->
+
+          
           <div class="collapse navbar-collapse" id="navbarsExample07">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
               <li>
-                <a class="nav-link">Motywacja</a>
+                <a class="nav-link"  routerLink="/theory" routerLinkActive="active">Wiedza</a>
               </li>
               <li>
-                <a class="nav-link">Symptomy</a>
+                <a class="nav-link" routerLink="/guidance" routerLinkActive="active">Porady</a>
               </li>
               <li>
-                <a class="nav-link">Osiągnięcia</a>
+                <a class="nav-link" routerLink="/motivation" routerLinkActive="active" >Motywacja</a>
+              </li>
+              <li>
+                <a class="nav-link"  routerLink="/notebook" routerLinkActive="active" *ngIf="accountService.currentUser$ | async">Notatnik</a>
+              </li>
+              <li>
+                <a class="nav-link" routerLink="/achievement" routerLinkActive="active" *ngIf="accountService.currentUser$ | async">Osiągnięcia</a>
               </li>
               
             </ul>
           </div>
 
-          <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-            <a class="dropdown-toggle text-light" dropdownToggle>Ważne informacje</a>
-            <div class="dropdown-menu" *dropdownMenu>
-              <a class="dropdown-item" >Jak zacząć?</a>
-              <a class="dropdown-item" >Metody walki z nałogiem</a>
-              <a class="dropdown-item" >Pomoc</a>
-            </div>
-          </div>
+          
 
 
             <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
               <a class="dropdown-toggle text-light" dropdownToggle>Witaj!</a>
               <div class="dropdown-menu mt-3" *dropdownMenu>
                 <a class="dropdown-item">Edytuj profil</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item">Zacznij od nowa</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" (click)="logout()">Wyloguj</a>
               </div>

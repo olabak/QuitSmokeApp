@@ -10,6 +10,11 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { AchievementComponent } from './achievement/achievement.component';
+import { TheoryComponent } from './theory/theory.component';
+import { NotebookComponent } from './notebook/notebook.component';
+import { GuidanceComponent } from './guidance/guidance.component';
+import { MotivationComponent } from './motivation/motivation.component';
 
 
 @NgModule({
@@ -18,6 +23,12 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     NavComponent,
     RegisterComponent,
+    AchievementComponent,
+    TheoryComponent,
+    NotebookComponent,
+    GuidanceComponent,
+    MotivationComponent,
+ 
   ],
   imports: [
     BrowserModule,
