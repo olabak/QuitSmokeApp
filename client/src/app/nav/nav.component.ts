@@ -4,6 +4,11 @@ import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 import { Router } from '@angular/router';
 
+
+
+
+
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -11,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   model: any = {}
+  registerMode = false;
 
   constructor(public accountService: AccountService,private router: Router) { }
 
@@ -19,7 +25,7 @@ export class NavComponent implements OnInit {
 
   login() {
     this.accountService.login(this.model).subscribe(response => {
-      this.router.navigateByUrl('/notebook');
+      this.router.navigateByUrl('');
     }, error => {
       console.log(error);
     })
@@ -29,4 +35,14 @@ export class NavComponent implements OnInit {
     this.accountService.logout();
     this.router.navigateByUrl('/');
   }
+
+  registerToggle() {
+    this.registerMode = !this.registerMode;
+  }
+
+  cancelRegisterMode(event: boolean) {
+    this.registerMode = event;
+  }
+
+  
 }

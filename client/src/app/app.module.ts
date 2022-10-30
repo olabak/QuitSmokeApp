@@ -15,6 +15,8 @@ import { TheoryComponent } from './theory/theory.component';
 import { NotebookComponent } from './notebook/notebook.component';
 import { GuidanceComponent } from './guidance/guidance.component';
 import { MotivationComponent } from './motivation/motivation.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { MotivationComponent } from './motivation/motivation.component';
     NotebookComponent,
     GuidanceComponent,
     MotivationComponent,
+    
  
   ],
   imports: [
@@ -37,6 +40,8 @@ import { MotivationComponent } from './motivation/motivation.component';
     BrowserAnimationsModule,
     FormsModule,
     BsDropdownModule.forRoot(),
+    MatDialogModule 
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
