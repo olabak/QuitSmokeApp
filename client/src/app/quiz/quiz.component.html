@@ -1,0 +1,10 @@
+<form>
+    <app-quiz-question *ngFor="let question of questions; let questionIndex = index" 
+    [number]="questionIndex+1" [content]="question.content" [name]="question.name">
+
+    </app-quiz-question>
+
+    <button type="submit" class="btn btn-success">Zapisz</button>
+</form>
+
+ 

@@ -16,6 +16,12 @@ import { NotebookComponent } from './notebook/notebook.component';
 import { GuidanceComponent } from './guidance/guidance.component';
 import { MotivationComponent } from './motivation/motivation.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SharedModule } from './_modules/shared.module';
+import { ProfileComponent } from './profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { QuizComponent } from './quiz/quiz.component';
+import { QuizQuestionComponent } from './_modules/quiz-question/quiz-question.component';
+
 
 
 
@@ -30,6 +36,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     NotebookComponent,
     GuidanceComponent,
     MotivationComponent,
+    ProfileComponent,
+    QuizComponent,
+    QuizQuestionComponent
     
  
   ],
@@ -37,10 +46,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     FormsModule,
-    BsDropdownModule.forRoot(),
-    MatDialogModule 
+    MatDialogModule,
+    SharedModule,
+    ReactiveFormsModule,
+    
     
   ],
   providers: [],

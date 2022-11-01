@@ -5,6 +5,8 @@ import { GuidanceComponent } from './guidance/guidance.component';
 import { HomeComponent } from './home/home.component';
 import { MotivationComponent } from './motivation/motivation.component';
 import { NotebookComponent } from './notebook/notebook.component';
+import { ProfileComponent } from './profile/profile.component';
+import { QuizComponent } from './quiz/quiz.component';
 import { TheoryComponent } from './theory/theory.component';
 
 const routes: Routes = [
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'guidance', component: GuidanceComponent},
   {path: 'theory', component: TheoryComponent},
   {path: 'motivation', component: MotivationComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'quiz', component: QuizComponent},
   {path: '**', component: HomeComponent, pathMatch: 'full'},
 
 ];

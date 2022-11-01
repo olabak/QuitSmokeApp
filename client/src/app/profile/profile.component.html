@@ -1,0 +1,21 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label >Data ostatniego papierosa</label>
+      <input type="date" class="form-control" formControlName="lastSmokeDate" >
+      
+    </div>
+    <div class="form-group">
+      <label>Ilość wypalanych papierosów dziennie</label>
+      <input type="number" class="form-control" formControlName="numbersOfCigarettes" placeholder="">
+    </div>
+    <div class="form-group">
+        <label>Lata palenia</label>
+        <input type="number" class="form-control" formControlName="yearsOfSmoking" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Cena za paczkę [zł]</label>
+        <input type="number" class="form-control" formControlName="priceOfPacket" placeholder="">
+      </div>
+    
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+  </form>

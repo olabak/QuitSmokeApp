@@ -49,7 +49,7 @@
             <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
               <a class="dropdown-toggle text-light" dropdownToggle>Witaj!</a>
               <div class="dropdown-menu mt-3" *dropdownMenu>
-                <a class="dropdown-item">Edytuj profil</a>
+                <a class="dropdown-item" routerLink="/profile" routerLinkActive="active">Edytuj profil</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item">Zacznij od nowa</a>
                 <div class="dropdown-divider"></div>
