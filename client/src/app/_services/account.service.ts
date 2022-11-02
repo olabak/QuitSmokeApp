@@ -26,6 +26,12 @@ export class AccountService {
     )
   }
 
+  // addUser(newUser: newUser, companyId: string) {
+  //   return this.http.post(`api/Account/addUser?companyId=${companyId}`, newUser);
+  // }
+  //https://localhost:5001/api/account/register
+
+  //https://localhost:5001/api/UserSetting/getById?userId=2
   register(model: any) {
     return this.http.post(this.baseUrl + 'account/register', model).pipe(
       map((user: User) => {

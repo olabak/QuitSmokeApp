@@ -67,7 +67,7 @@
               [(ngModel)]="model.password"
               class="form-control me-2" type="password" placeholder="Password">
               <button class="btn btn-outline-success" type="submit">Zaloguj</button>
-              <button class="btn btn-outline-secondary" (click)="registerToggle()" type="submit">Zarejestruj</button>
+              <a class="btn btn-outline-secondary" routerLink="/register" routerLinkActive="active" type="submit">Zarejestruj</a>
             </form>
             
           </div>

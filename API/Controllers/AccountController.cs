@@ -26,15 +26,30 @@ namespace API.Controllers
             if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
 
             using var hmac = new HMACSHA512();
+            
+            // tworzenie UserSetting
+            //db.UserSetting.Max(Id)++
+            var maxUserSetting = await _context.Set<UserSetting>().MaxAsync(us => us.Id);
+
+            var defaultUserSetting = new UserSetting
+            {
+                Id = ++maxUserSetting,
+                LastCigarette = System.DateTime.Today,
+                NumbersOfCigarettes = 5,
+                PriceOfPacket = 10,
+                YearsOfSmoking = 5
+            };
 
             var user = new AppUser
             {
                 UserName = registerDto.Username.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                PasswordSalt = hmac.Key
+                PasswordSalt = hmac.Key,
+                SettingId = defaultUserSetting.Id
             };
 
-            _context.Users.Add(user);
+            _context.Add(defaultUserSetting);
+            _context.Add(user);
             await _context.SaveChangesAsync();
 
             return new UserDto

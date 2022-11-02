@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AchievementComponent } from './achievement/achievement.component';
@@ -20,8 +18,8 @@ import { SharedModule } from './_modules/shared.module';
 import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { QuizComponent } from './quiz/quiz.component';
-import { QuizQuestionComponent } from './_modules/quiz-question/quiz-question.component';
-
+import { QuizQuestionComponent } from './quiz/quiz-question/quiz-question.component';
+import { NotebookFormComponent } from './notebook/notebook-form/notebook-form.component';
 
 
 
@@ -38,7 +36,9 @@ import { QuizQuestionComponent } from './_modules/quiz-question/quiz-question.co
     MotivationComponent,
     ProfileComponent,
     QuizComponent,
-    QuizQuestionComponent
+    QuizQuestionComponent,
+    NotebookFormComponent,
+    
     
  
   ],
@@ -54,6 +54,7 @@ import { QuizQuestionComponent } from './_modules/quiz-question/quiz-question.co
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

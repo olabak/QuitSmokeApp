@@ -12,5 +12,13 @@ namespace API.Entities
 
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public int SettingId { get; set; }
+        public virtual UserSetting? Setting { get; set; }
+        //public virtual List<Note> MyProperty { get; set; }
+        //         Data ostatniego papierosa
+        // dd.mm.rrrr
+        // Ilość wypalanych papierosów dziennie
+        // Lata palenia
+        // Cena za paczkę [zł]
     }
 }
