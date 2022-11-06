@@ -1,5 +1,5 @@
 export interface UserSetting{
-    latSmokeDate: Date,
+    lastSmokeDate: Date,
     numbersOfCigarettes: number,
     yearsOfSmoking: number,
     priceOfPacket: number,

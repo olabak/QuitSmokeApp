@@ -1,10 +1,10 @@
 <form>
     <app-quiz-question *ngFor="let question of questions; let questionIndex = index" 
-    [number]="questionIndex+1" [content]="question.content" [name]="question.name">
+    [number]="questionIndex+1" [content]="question.content" [name]="question.name" (selectedOption)="radioChangeHandler($event)">
 
     </app-quiz-question>
 
-    <button type="submit" class="btn btn-success">Zapisz</button>
+    <button type="submit" class="btn btn-success" (click)="onSubmit()">Zapisz</button>
     <a class="btn btn-primary" routerLink="/motivation" routerLinkActive="active" >Anuluj</a>
 </form>
 

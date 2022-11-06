@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizQuestionComponent } from './quiz/quiz-question/quiz-question.component';
 import { NotebookFormComponent } from './notebook/notebook-form/notebook-form.component';
+import { MatTableModule } from '@angular/material/table' 
 
 
 
@@ -50,7 +51,7 @@ import { NotebookFormComponent } from './notebook/notebook-form/notebook-form.co
     MatDialogModule,
     SharedModule,
     ReactiveFormsModule,
-    
+    MatTableModule
     
   ],
   providers: [],

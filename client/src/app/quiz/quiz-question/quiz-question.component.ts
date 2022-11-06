@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-quiz-question',
@@ -9,10 +9,23 @@ export class QuizQuestionComponent implements OnInit {
 @Input() number = '';
 @Input() content: any;
 @Input() name: string;
+values: any = [
+  'TAK',
+  'NIE'
+];
+
+@Output() selectedOption = new EventEmitter<string>();
+//selectedOption: string = ''
 
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+
+  radioChangeHandler(event: any){
+    //this.selectedOption = event.target.value;
+    this.selectedOption.emit(event)
   }
 
 }

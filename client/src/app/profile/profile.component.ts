@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from '../_models/user';
 import { UserSetting } from '../_models/userSettings';
+import { AccountService } from '../_services/account.service';
 import { UserSettingsService } from '../_services/userSettings.service';
 
 @Component({
@@ -12,13 +14,18 @@ export class ProfileComponent implements OnInit {
 
   profileForm: FormGroup;
   userSetting: UserSetting = null;
+  lastCigarrete: number = Date.now();
+  
+  
+  
   // =>dto
 
-  constructor(private _service: UserSettingsService) { }
+  constructor(private _service: UserSettingsService, private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.initializeForm();
     this.getUserSetting();
+    console.log(this.lastCigarrete)
   }
   
   onSubmit() {
@@ -38,7 +45,7 @@ export class ProfileComponent implements OnInit {
       this.userSetting = res;
       this.profileForm.patchValue(res);
       console.log(this.profileForm.get('lastSmokeDate').value);
-      this.profileForm.get('lastSmokeDate').patchValue(new Date(res.latSmokeDate));
+      this.profileForm.get('lastSmokeDate').patchValue(this.formatDate(res.lastSmokeDate));
     });
   }
 
@@ -54,11 +61,21 @@ export class ProfileComponent implements OnInit {
   
   private initializeForm() {
     this.profileForm = new FormGroup({
-      'lastSmokeDate': new FormControl(Validators.required),
+      'lastSmokeDate': new FormControl('',Validators.required),
       'numbersOfCigarettes': new FormControl(),
       'yearsOfSmoking': new FormControl(null),
       'priceOfPacket': new FormControl(null)
     });
+}
 
+private formatDate(date) {
+  const d = new Date(date);
+  let month = '' + (d.getDate()+1)
+  let day = '' + d.getDate();
+  const year = d.getFullYear();
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+  return [year, month, day].join('-');
+  
 }
 }

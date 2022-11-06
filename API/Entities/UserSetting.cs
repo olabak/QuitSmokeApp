@@ -15,6 +15,8 @@ namespace API.Entities
         public int NumbersOfCigarettes { get; set; }
         public int YearsOfSmoking { get; set; }
         public int PriceOfPacket { get; set; }
+
+        //public string Motivation {get; set;}
         public UserSetting(){}
         public UserSetting(UserSettingDto dto)
         {

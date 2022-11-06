@@ -1,4 +1,59 @@
 
 
 <a class="btn btn-success" routerLink="/notebook%form" routerLinkActive="active" >Dodaj notatkę</a>
-<p>Tabela dodanych notatek</p>
+
+
+<div class="table-responsive">  
+<table mat-table [dataSource]="dataSource" class="table-dark">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="lp">
+      <th mat-header-cell *matHeaderCellDef> Lp </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Data dodania </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="mood">
+      <th mat-header-cell *matHeaderCellDef> Samopoczucie </th>
+      <td mat-cell *matCellDef="let element"> {{element.mood}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="moodDescription">
+      <th mat-header-cell *matHeaderCellDef> Opis samopoczucia </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="symptom">
+        <th mat-header-cell *matHeaderCellDef> Symptomy odstawienne </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="symptomDescription">
+        <th mat-header-cell *matHeaderCellDef> Opis symptomów </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Dzienny wpis </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="days">
+      <th mat-header-cell *matHeaderCellDef> Dni bez palenia </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>

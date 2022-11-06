@@ -1,51 +1,51 @@
 
-<form>
+<form [formGroup]="notebookForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <p>Oceń swoje dzisiejsze samopoczucie</p>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="feeling" value="5">
+            <input class="form-check-input" type="radio" name="mood" value="Bardzo dobre"  formControlName="mood">
             <label class="form-check-label" for="inlineRadio1">Bardzo dobre</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="feeling" value="4">
+            <input class="form-check-input" type="radio" name="mood" value="Dobre" formControlName="mood">
             <label class="form-check-label" for="inlineRadio2">Dobre</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="feeling" value="4">
+            <input class="form-check-input" type="radio" name="mood" value="Średnie" formControlName="mood">
             <label class="form-check-label" for="inlineRadio2">Średnie</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="feeling" value="4">
+            <input class="form-check-input" type="radio" name="mood" value="Złe" formControlName="mood">
             <label class="form-check-label" for="inlineRadio2">Złe</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="feeling" value="4">
+            <input class="form-check-input" type="radio" name="mood" value="Bardzo złe" formControlName="mood">
             <label class="form-check-label" for="inlineRadio2">Bardzo złe</label>
           </div>
         </div>
         <div class="form-group">
             <label>Dlaczego się tak czujesz?</label>
-            <input type="number" class="form-control" formControlName="numbersOfCigarettes" placeholder="">
+            <input type="number" class="form-control" formControlName="moodDescription" placeholder="">
         </div>
         <div>
           <p>Czy masz objawy odstawienne?</p>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="sicknes" value="1">
+            <input class="form-check-input" type="radio" name="symptom" value="Tak"  formControlName="symptom">
             <label class="form-check-label" for="inlineRadio2">TAK</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="sicknes" value="0">
+            <input class="form-check-input" type="radio" name="symptom" value="Nie"  formControlName="symptom">
             <label class="form-check-label" for="inlineRadio2">NIE</label>
           </div>
         </div>
 
         <div class="form-group">
             <label>Jeśli zaznaczyłeś odpowiedź TAK* Jakie?</label>
-            <input type="text" class="form-control" formControlName="numbersOfCigarettes" placeholder="">
+            <input type="text" class="form-control" formControlName="symptomDescription" placeholder="">
         </div>
         
         <label for="exampleFormControlTextarea1">Napisz kilka słów od siebie</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" formControlName="description" rows="3"></textarea>
       
       <button type="submit" class="btn btn-success">Zapisz</button>
       <a class="btn btn-primary" routerLink="/notebook" routerLinkActive="active" >Anuluj</a>

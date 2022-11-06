@@ -69,11 +69,26 @@ export class QuizComponent implements OnInit {
     }
 
   ] ;
+
+  public answer: any= [
+
+  ];
   
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.answer);
+  }
+
+  onSubmit(){
+    
+  }
+
+  radioChangeHandler(value: string): void{
+    console.log(value)
+    this.answer.push(value);
+    console.log(this.answer);
   }
 
 }
