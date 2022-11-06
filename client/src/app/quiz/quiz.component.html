@@ -1,6 +1,6 @@
 <form>
     <app-quiz-question *ngFor="let question of questions; let questionIndex = index" 
-    [number]="questionIndex+1" [content]="question.content" [name]="question.name" (selectedOption)="radioChangeHandler($event)">
+    [number]="questionIndex+1" [content]="question.content" [name]="question.name" (selectedOption)="setAnswer($event, questionIndex)">
 
     </app-quiz-question>
 
@@ -9,3 +9,11 @@
 </form>
 
  
+<div class="card" *ngIf="submited==true">
+    <div class="card-body">
+        <h4 class="card-title">Wynik: </h4>
+        <p>Poziom twojej motywacji jest na <b>{{level}}</b> poziomie</p>
+        <p *ngIf="score<6"> 
+            <a>Dowiedz się więcej o motywacji</a> </p>
+    </div>
+</div>

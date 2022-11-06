@@ -1,3 +1,4 @@
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../_models/question';
 
@@ -70,25 +71,51 @@ export class QuizComponent implements OnInit {
 
   ] ;
 
-  public answer: any= [
-
-  ];
+  answer = new Array(12).fill('');
+  answer2 = new Array(12).fill('');
+  score = 0;
+  level: string = '';
+  submited: boolean =false;
   
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.answer);
-  }
-
-  onSubmit(){
+    
     
   }
 
-  radioChangeHandler(value: string): void{
-    console.log(value)
-    this.answer.push(value);
-    console.log(this.answer);
+  onSubmit(){
+    this.getScore(this.answer);
+    this.submited = true;
   }
 
+  setAnswer(value: 'TAK' | 'NIE', answerNumber: number) : void {
+    this.answer[answerNumber]=value;
+  }
+
+  getScore(answer: any){
+    for(let i =0; i< answer.length;i++){
+      if(answer[i]=== 'TAK')
+      {
+        this.score++;
+      }
+      
+    }
+    if(this.score>6){
+      this.level = 'wysokim';
+    }
+    else{
+      this.level = 'niskim';
+    }
+    
+  }
 }
+
+  // radioChangeHandler(value: string): void{
+  //   console.log(value)
+  //   this.answer.push(value);
+  //   console.log(this.answer);
+  // }
+
+
