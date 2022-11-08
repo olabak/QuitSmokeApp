@@ -16,8 +16,12 @@ namespace API.Entities
         public int YearsOfSmoking { get; set; }
         public int PriceOfPacket { get; set; }
 
-        //public string Motivation {get; set;}
+        public string Motivation {get; set;}
+
+        public int QuizScore {get; set;}
         public UserSetting(){}
+
+        
         public UserSetting(UserSettingDto dto)
         {
             Id = dto.Id;

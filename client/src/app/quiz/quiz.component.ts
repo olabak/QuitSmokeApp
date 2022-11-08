@@ -72,7 +72,6 @@ export class QuizComponent implements OnInit {
   ] ;
 
   answer = new Array(12).fill('');
-  answer2 = new Array(12).fill('');
   score = 0;
   level: string = '';
   submited: boolean =false;

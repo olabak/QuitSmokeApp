@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
   }
 
   private getUserSetting(): void {
-    this._service.getById(2).subscribe((res: UserSetting) => 
+    this._service.getById(this.userSetting.id).subscribe((res: UserSetting) => 
     { 
       console.log(res);
       this.userSetting = res;
@@ -49,15 +49,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  // getDescriptionList(): void {
-  //   this._settings.getParametersList('description', this._global.globalVariables.CompanyId, this.fetchParams).subscribe(
-  //     (res) => {
-  //       this.descriptionParameters = [...this.descriptionParameters, ...res];
-  //       this.descriptionData = new MatTableDataSource<dtoNameType>(this.descriptionParameters);
-  //     },
-  //     (err) => this._global.showHttpErrorResponse(err),
-  //   );
-  // }
+ 
   
   private initializeForm() {
     this.profileForm = new FormGroup({

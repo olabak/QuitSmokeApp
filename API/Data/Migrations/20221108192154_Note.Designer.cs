@@ -3,14 +3,16 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221108192154_Note")]
+    partial class Note
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,40 +41,6 @@ namespace API.Data.Migrations
                     b.HasIndex("SettingId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("API.Entities.Note", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("AddDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Mood")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("MoodDescription")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("Symptom")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("SymptomDescription")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Notes");
                 });
 
             modelBuilder.Entity("API.Entities.UserSetting", b =>
@@ -113,17 +81,6 @@ namespace API.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Setting");
-                });
-
-            modelBuilder.Entity("API.Entities.Note", b =>
-                {
-                    b.HasOne("API.Entities.AppUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

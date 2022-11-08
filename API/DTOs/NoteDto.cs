@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Entities;
 
 namespace API.DTOs
 {
@@ -11,26 +12,26 @@ namespace API.DTOs
         public int Id {get; set;}
 
         public int UserId {get; set;}
-        string Mood {get; set;}
-        string MoodDescription {get; set;}
-        string Symptom {get; set;}
-        string SymptomDescription {get; set;}
-        string Description {get; set;}
+        public /*Mood*/ string Mood {get; set;}
+        public string MoodDescription {get; set;}
+        public /*bool*/ string Symptom {get; set;}
+        public string SymptomDescription {get; set;}
+        public string Description {get; set;}
 
         public NoteDto()
         {
             
         }
-        // public NoteDto(Note entity)
-        // {
-        //     Id = entity.Id;
-        //     UserId = entity.UserId;
-        //     Mood = entity.Mood;
-        //     MoodDescription = entity.MoodDescription;
-        //     Symptom = entity.Symptom;
-        //     SymptomDescription = entity.SymptomDescription;
-        //     Description = entity.Description;
+        public NoteDto(Note entity)
+        {
+            Id = entity.Id;
+            UserId = entity.UserId;
+            Mood = entity.Mood.ToString();
+            MoodDescription = entity.MoodDescription;
+            Symptom = entity.Symptom.ToString();
+            SymptomDescription = entity.SymptomDescription;
+            Description = entity.Description;
 
-        // }
+        }
     }
 }
