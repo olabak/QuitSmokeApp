@@ -20,7 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizQuestionComponent } from './quiz/quiz-question/quiz-question.component';
 import { NotebookFormComponent } from './notebook/notebook-form/notebook-form.component';
-import { MatTableModule } from '@angular/material/table' 
+import { MatTableModule } from '@angular/material/table';
+import { MalignancyComponent } from './theory/malignancy/malignancy.component';
+import { FactMythComponent } from './theory/fact-myth/fact-myth.component';
+import { MechanismComponent } from './theory/mechanism/mechanism.component' 
 
 
 
@@ -39,6 +42,9 @@ import { MatTableModule } from '@angular/material/table'
     QuizComponent,
     QuizQuestionComponent,
     NotebookFormComponent,
+    MalignancyComponent,
+    FactMythComponent,
+    MechanismComponent,
     
     
  

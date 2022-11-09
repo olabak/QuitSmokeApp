@@ -9,7 +9,10 @@ import { NotebookComponent } from './notebook/notebook.component';
 import { ProfileComponent } from './profile/profile.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RegisterComponent } from './register/register.component';
+import { FactMythComponent } from './theory/fact-myth/fact-myth.component';
+import { MalignancyComponent } from './theory/malignancy/malignancy.component';
 import { TheoryComponent } from './theory/theory.component';
+import { MechanismComponent } from './theory/mechanism/mechanism.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -22,6 +25,9 @@ const routes: Routes = [
   {path: 'motivation', component: MotivationComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'quiz', component: QuizComponent},
+  {path: 'theory/malignancy', component: MalignancyComponent},
+  {path: 'theory/facts?myths', component: FactMythComponent},
+  {path: 'theory/mechanism', component: MechanismComponent},
   {path: '**', component: HomeComponent, pathMatch: 'full'},
 
 ];
