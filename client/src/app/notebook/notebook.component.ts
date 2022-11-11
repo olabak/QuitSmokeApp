@@ -33,7 +33,7 @@ export class NotebookComponent implements OnInit {
     this._note.listByUserId(JSON.parse(localStorage.getItem('user')).id).subscribe((res: Note[]) => {
       this.dataSource = res;
       console.log(res);
-      console.log(this.dataSource);
+      
     })
   }
 

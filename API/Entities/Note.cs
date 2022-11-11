@@ -35,6 +35,7 @@ namespace API.Entities
             Symptom = bool.Parse(dto.Symptom);
             SymptomDescription = dto.SymptomDescription;
             Description = dto.Description;
+            AddDate = dto.AddDate;
         }
 
     }

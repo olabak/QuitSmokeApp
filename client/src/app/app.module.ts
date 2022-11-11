@@ -23,7 +23,8 @@ import { NotebookFormComponent } from './notebook/notebook-form/notebook-form.co
 import { MatTableModule } from '@angular/material/table';
 import { MalignancyComponent } from './theory/malignancy/malignancy.component';
 import { FactMythComponent } from './theory/fact-myth/fact-myth.component';
-import { MechanismComponent } from './theory/mechanism/mechanism.component' 
+import { MechanismComponent } from './theory/mechanism/mechanism.component';
+import { BenefitsComponent } from './theory/benefits/benefits.component' 
 
 
 
@@ -45,6 +46,7 @@ import { MechanismComponent } from './theory/mechanism/mechanism.component'
     MalignancyComponent,
     FactMythComponent,
     MechanismComponent,
+    BenefitsComponent,
     
     
  

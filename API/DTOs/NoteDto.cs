@@ -18,6 +18,8 @@ namespace API.DTOs
         public string SymptomDescription {get; set;}
         public string Description {get; set;}
 
+        public DateTime AddDate {get; set;} = DateTime.Now;
+
         public NoteDto()
         {
             
@@ -28,6 +30,7 @@ namespace API.DTOs
             UserId = entity.UserId;
             Mood = entity.Mood.ToString();
             MoodDescription = entity.MoodDescription;
+            AddDate = entity.AddDate;
             Symptom = entity.Symptom.ToString();
             SymptomDescription = entity.SymptomDescription;
             Description = entity.Description;

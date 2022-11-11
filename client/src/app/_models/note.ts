@@ -4,13 +4,14 @@ export interface Note{
     symptom: boolean,
     symptomDescription: string,
     description: string,
+    addDate: Date,
     id: number,
     userId: number;
 
     
 }
 export enum mood{
-    BardzoDobre = 0,
+    "Bardzo Dobre" = 0,
     Dobre = 1,
     Średnie = 2,
     Złe = 3,

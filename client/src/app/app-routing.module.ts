@@ -28,6 +28,7 @@ const routes: Routes = [
   {path: 'theory/malignancy', component: MalignancyComponent},
   {path: 'theory/facts?myths', component: FactMythComponent},
   {path: 'theory/mechanism', component: MechanismComponent},
+  {path: 'theory/benefits', component: MechanismComponent},
   {path: '**', component: HomeComponent, pathMatch: 'full'},
 
 ];
