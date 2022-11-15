@@ -30,6 +30,28 @@ namespace API.Managers
             return new UserSettingDto(oldEntity);
         }
 
+        internal async Task<UserSettingDto> UpdateMotivationAsync(UserSettingDto dto)
+        {
+            
+            var oldEntity = await _context.Set<UserSetting>().FirstOrDefaultAsync(us => us.Id == dto.Id);
+            oldEntity.Motivation = dto.Motivation;
+
+            await _context.SaveChangesAsync();
+
+            return new UserSettingDto(oldEntity);
+        }
+
+        internal async Task<UserSettingDto> UpdateQuizScoreAsync(UserSettingDto dto)
+        {
+            
+            var oldEntity = await _context.Set<UserSetting>().FirstOrDefaultAsync(us => us.Id == dto.Id);
+            oldEntity.QuizScore = dto.QuizScore;
+
+            await _context.SaveChangesAsync();
+
+            return new UserSettingDto(oldEntity);
+        }
+
         internal async Task<UserSettingDto> GetUserSettingAsync(int userId)
         {
             var user = await _context.Set<AppUser>().FirstOrDefaultAsync(user => user.Id == userId);

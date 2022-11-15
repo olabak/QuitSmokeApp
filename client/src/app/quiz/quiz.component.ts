@@ -1,6 +1,11 @@
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { Question } from '../_models/question';
+import { UserSetting } from '../_models/userSettings';
+import { AccountService } from '../_services/account.service';
+import { UserSettingsService } from '../_services/userSettings.service';
 
 
 @Component({
@@ -9,6 +14,13 @@ import { Question } from '../_models/question';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+
+  profileForm: FormGroup;
+  userSetting: UserSetting = null;
+  answer = new Array(12).fill('');
+  quizScore = 0;
+  level: string = '';
+  submited: boolean =false;
   
   public questions: Question[] = [
     { number : 1,
@@ -71,23 +83,27 @@ export class QuizComponent implements OnInit {
 
   ] ;
 
-  answer = new Array(12).fill('');
-  score = 0;
-  level: string = '';
-  submited: boolean =false;
+  
   
 
-  constructor() { }
+  constructor(private _service: UserSettingsService, private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
     
-    
   }
 
+  
   onSubmit(){
+    
     this.getScore(this.answer);
-    this.submited = true;
+    console.log(this.quizScore);
+    this._service.UpdateUserQuizScore({quizScore: this.quizScore, id: JSON.parse(localStorage.getItem('user')).id}).subscribe(
+      (res: UserSetting) => 
+    { 
+      this.router.navigate(['motivation']);
+    });
   }
+
 
   setAnswer(value: 'TAK' | 'NIE', answerNumber: number) : void {
     this.answer[answerNumber]=value;
@@ -97,11 +113,11 @@ export class QuizComponent implements OnInit {
     for(let i =0; i< answer.length;i++){
       if(answer[i]=== 'TAK')
       {
-        this.score++;
+        this.quizScore++;
       }
       
     }
-    if(this.score>6){
+    if(this.quizScore>6){
       this.level = 'wysokim';
     }
     else{
@@ -109,12 +125,13 @@ export class QuizComponent implements OnInit {
     }
     
   }
+
+  
 }
 
-  // radioChangeHandler(value: string): void{
-  //   console.log(value)
-  //   this.answer.push(value);
-  //   console.log(this.answer);
-  // }
 
 
+
+  
+
+  

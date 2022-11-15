@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { MotivationComponent } from './motivation/motivation.component';
 import { NotebookFormComponent } from './notebook/notebook-form/notebook-form.component';
 import { NotebookComponent } from './notebook/notebook.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './userSettings/userSettings.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RegisterComponent } from './register/register.component';
 import { FactMythComponent } from './theory/fact-myth/fact-myth.component';

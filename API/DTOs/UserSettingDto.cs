@@ -10,13 +10,16 @@ namespace API.DTOs
     {
         public int Id {get; set;}
 
-        public DateTime LastSmokeDate { get; set; }
+        public string LastSmokeDate { get; set; }
         
         public int NumbersOfCigarettes { get; set; }
         public int YearsOfSmoking { get; set; }
         public int PriceOfPacket { get; set; } 
 
-        //public string Motivation {get; set;}
+        public string Motivation {get; set;}
+
+        public int QuizScore {get; set;}
+
         public UserSettingDto()
         {
             
@@ -24,10 +27,12 @@ namespace API.DTOs
         public UserSettingDto(UserSetting entity)
         {
             Id = entity.Id;
-            LastSmokeDate = entity.LastCigarette;
+            LastSmokeDate = entity.LastCigarette.ToString("yyyy-MM-dd");
             NumbersOfCigarettes = entity.NumbersOfCigarettes;
             YearsOfSmoking = entity.YearsOfSmoking;
             PriceOfPacket = entity.PriceOfPacket;
+            QuizScore = entity.QuizScore;
+            Motivation = entity.Motivation;
         }
     }
 }

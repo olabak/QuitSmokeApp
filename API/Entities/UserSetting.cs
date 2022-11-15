@@ -25,7 +25,7 @@ namespace API.Entities
         public UserSetting(UserSettingDto dto)
         {
             Id = dto.Id;
-            LastCigarette = dto.LastSmokeDate;
+            LastCigarette = DateTime.Parse(dto.LastSmokeDate);
             NumbersOfCigarettes = dto.NumbersOfCigarettes;
             YearsOfSmoking = dto.YearsOfSmoking;
             PriceOfPacket = dto.PriceOfPacket;

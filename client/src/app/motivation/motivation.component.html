@@ -1,10 +1,10 @@
 <h2></h2>
 <p>Motywacja to...</p>
 
-<form>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Co jest moją motywacją?</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label >Co jest moją motywacją?</label>
+        <textarea class="form-control"  rows="3" formControlName="motivation"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Zapisz</button>
 </form>

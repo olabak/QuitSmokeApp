@@ -39,6 +39,22 @@ namespace API.Controllers
             return Ok(await UserSettingManager.UpdateAsync(model));
         }
 
+        [HttpPut, Route("updatemotivation")]
+        public async Task<ActionResult> UpdateMotivationAsync([FromBody] UserSettingDto model)
+        {
+            //ValidateStrings(model.Id);
+
+            return Ok(await UserSettingManager.UpdateMotivationAsync(model));
+        }
+
+        [HttpPut, Route("updatequizscore")]
+        public async Task<ActionResult> UpdateQuizScoreAsync([FromBody] UserSettingDto model)
+        {
+            //ValidateStrings(model.Id);
+
+            return Ok(await UserSettingManager.UpdateQuizScoreAsync(model));
+        }
+
         // [HttpDelete, Route("description/delete")]
         // public async Task<IHttpActionResult> DeleteDescriptionListAsync([FromBody]List<string> descriptionIds)
         // {

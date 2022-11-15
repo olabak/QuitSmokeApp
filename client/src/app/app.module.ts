@@ -15,7 +15,7 @@ import { GuidanceComponent } from './guidance/guidance.component';
 import { MotivationComponent } from './motivation/motivation.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SharedModule } from './_modules/shared.module';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './userSettings/userSettings.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizQuestionComponent } from './quiz/quiz-question/quiz-question.component';

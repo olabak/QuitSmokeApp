@@ -64,10 +64,10 @@
     <nav>
       <ul class="nav__links"> 
             <li><a routerLink="/theory" routerLinkActive="active">Wiedza</a></li>
-            <li><a routerLink="/guidance" routerLinkActive="active">Porady</a></li>
+            <li><a routerLink="#" routerLinkActive="active">Porady</a></li>
             <li> <a routerLink="/motivation" routerLinkActive="active" >Motywacja</a></li>
             <li><a routerLink="/notebook" routerLinkActive="active" *ngIf="accountService.currentUser$ | async">Notatnik</a></li>
-            <li><a routerLink="/achievement" routerLinkActive="active" *ngIf="accountService.currentUser$ | async">Osiągnięcia</a></li>
+            <li><a routerLink="/achievement" routerLinkActive="active" *ngIf="accountService.currentUser$ | async">Historia</a></li>
       </ul>
       
     </nav>

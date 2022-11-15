@@ -7,8 +7,8 @@ import { UserSettingsService } from '../_services/userSettings.service';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  templateUrl: './userSettings.component.html',
+  styleUrls: ['./userSettings.component.css']
 })
 export class ProfileComponent implements OnInit {
 
@@ -17,35 +17,35 @@ export class ProfileComponent implements OnInit {
   lastCigarrete: number = Date.now();
   
   
-  
-  // =>dto
 
   constructor(private _service: UserSettingsService, private accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.initializeForm();
-    this.getUserSetting();
-    console.log(this.lastCigarrete)
+    this.initializeForm(); //1
+    this.getUserSetting(); //3
+
+    console.log("text:", this.userSetting) //2
   }
   
   onSubmit() {
     this._service.UpdateUserSetting({...this.profileForm.value, Id: this.userSetting.id}).subscribe(
       (res: UserSetting) => 
     { 
-      console.log(res);
       this.userSetting = res;
       this.profileForm.patchValue(res);
+      this.profileForm.get('lastSmokeDate').patchValue(this.formatDate(res.lastSmokeDate));
     });
   }
 
+
+  //brak 
   private getUserSetting(): void {
-    this._service.getById(this.userSetting.id).subscribe((res: UserSetting) => 
+    this._service.getById(JSON.parse(localStorage.getItem('user')).id).subscribe((res: UserSetting) => 
     { 
-      console.log(res);
       this.userSetting = res;
       this.profileForm.patchValue(res);
+      //this.profileForm.get('lastSmokeDate').patchValue(this.formatDate(res.lastSmokeDate));
       console.log(this.profileForm.get('lastSmokeDate').value);
-      this.profileForm.get('lastSmokeDate').patchValue(this.formatDate(res.lastSmokeDate));
     });
   }
 
@@ -62,12 +62,19 @@ export class ProfileComponent implements OnInit {
 
 private formatDate(date) {
   const d = new Date(date);
-  let month = '' + (d.getDate()+1)
+  let month = '' + (d.getDate())
   let day = '' + d.getDate();
   const year = d.getFullYear();
   if (month.length < 2) month = '0' + month;
   if (day.length < 2) day = '0' + day;
   return [year, month, day].join('-');
-  
 }
+
+// import * as moment from 'moment-timezone';
+// ...
+
+// this.dateAcquiredControl = new FormControl(
+//   moment(this.vehicle.dateAcquired).format(
+//     'YYYY-MM-DD'
+//   ), {
 }

@@ -20,17 +20,16 @@ export class HomeComponent implements OnInit {
   priceOfPacket: number;
   daysOffSmoke: number;
   today: Date = new Date();
+  diff: number;
   value1 = "1/1/2000";
   value2 = "1/1/2001";
   
-  diff = Math.floor((Date.parse(this.value1) - Date.parse(this.value2)) / 86400000);
 
   constructor(public accountService: AccountService, private userService: UserSettingsService) { }
 
   ngOnInit(): void {
-    this.getUserSetting2()
-    this.madeInformation()
-    console.log(this.diff)
+    this.getUserSetting()
+    
   }
 
   registerToggle() {
@@ -42,23 +41,21 @@ export class HomeComponent implements OnInit {
   }
 
 
-  private getUserSetting2(): void {
-      this.userService.getById(2).subscribe((res: UserSetting) => 
+  private getUserSetting(): void {
+      this.userService.getById(JSON.parse(localStorage.getItem('user')).id).subscribe((res: UserSetting) => 
       { 
         this.userSetting = res;
         this.numbersOfCigarettes = res.numbersOfCigarettes;
         this.lastSmokeDate = res.lastSmokeDate;
         this.priceOfPacket = res.priceOfPacket;
         this.yearsOfSmoking = res.yearsOfSmoking;
+        console.log(res.lastSmokeDate);
+        this.diff = Math.floor((Date.parse(this.today.toString()) - Date.parse(this.lastSmokeDate.toString())) / 86400000);
+        console.log(this.diff)
       });
   }
 
-  private madeInformation(): void {
-    //this.daysOffSmoke = this.lastSmokeDate.getDate();
-
-    console.log(this.today);
-    
-  }
+  
   
       
          

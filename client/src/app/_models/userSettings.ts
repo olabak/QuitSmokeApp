@@ -3,5 +3,7 @@ export interface UserSetting{
     numbersOfCigarettes: number,
     yearsOfSmoking: number,
     priceOfPacket: number,
-    id: number
+    id: number,
+    motivation: string,
+    quizScore: number
 }
