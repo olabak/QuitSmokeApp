@@ -37,8 +37,8 @@ export class NotebookFormComponent implements OnInit {
     this._note.addNote(this.note).subscribe(
       (response: Note) =>
       {
-        console.log(response);
         this.note = response;
+        this.note.addDate = this.formatDate(response.addDate);
       }
     );
 
@@ -53,6 +53,15 @@ export class NotebookFormComponent implements OnInit {
       'symptomDescription': new FormControl(),
       'description': new FormControl()
     });
+}
 
+private formatDate(date) {
+  const d = new Date(date);
+  let month = '' + (d.getDate())
+  let day = '' + d.getDate();
+  const year = d.getFullYear();
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+  return [year, month, day].join('-');
 }
 }

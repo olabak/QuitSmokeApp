@@ -1,4 +1,54 @@
-<div class="cards">
+<div class="card border-info main_card">
+    <div class="card-body main_card-body">
+        <p class="card-title">Nie palisz już {{diff}} dni!</p>
+    </div>
+  </div>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+        <div class="card border-dark h-100">
+        <div class="card-header header">Raport dnia</div>
+          <div class="card-body text-dark">
+            <p class="card-title">Nie wypaliłeś {{ numbersOfCigarettesAll }} papierosów! </p>
+            <p class="card-title">Zaoszczedziłeś {{ profit +"zł"}}! </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card border-dark h-100">
+        <div class="card-header header">Motywacja</div>
+          <div class="card-body text-dark">
+            <i>{{ motivation }}</i>
+            <p> Poziom twojej motywacji: {{ quizScore }}</p>
+            <p *ngIf="quizScore<6">
+            <a routerLink="/motivation" routerLinkActive="active" >Popraw swoją motywację</a>
+            </p>
+          </div>
+        </div>
+
+</div >
+
+
+<div class="row row-cols-md-1 row-cols-md-2 g-4"> 
+    <div class="col">
+        <div class="card border-dark h-100">
+        <div class="card-header header_benefit">Palenie w liczbach</div>
+          <div class="card-body text-dark">
+            <p> {{ info }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card border-dark h-100">
+        <div class="card-header header_info">Korzyści zdrowotne</div>
+          <div class="card-body text-dark">
+            <p> {{ info }}</p>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+
+<!-- <div class="cards">
 <div class="card" style="width: 18rem;" >
     <div class="card-body">
     <div *ngIf="!registerMode" style='text-align: center;'>
@@ -28,19 +78,19 @@
 </div>
 <div class="card" style="width: 18rem;" >
     <div class="card-body">
-        <h2>Zaoszczedziłeś X pieniędzy</h2>
+        <h2>Zaoszczedziłeś {{ profit +"zł"}} </h2>
     </div>
 </div>
 <div class="card" style="width: 18rem;" >
     <div class="card-body">
-        <h2>Nie wypaliłeś X papierosów!</h2>
+        <h2>Nie wypaliłeś {{ numbersOfCigarettesAll }} papierosów!</h2>
     </div>
 </div>
 <div class="card" style="width: 18rem;" >
     <div class="card-body">
         <h2>Pamiętaj o swojej motywacji:</h2>
-        <p>Moje zdrowie</p>
+        <p>{{motivation}}</p>
     </div>
 </div>
 </div>
-
+ -->

@@ -4,7 +4,7 @@ export interface Note{
     symptom: boolean,
     symptomDescription: string,
     description: string,
-    addDate: Date,
+    addDate: string,
     id: number,
     userId: number;
 

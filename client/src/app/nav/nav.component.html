@@ -1,70 +1,14 @@
-<!-- <nav>
-  <div class="container">
-      <div class="container-fluid">
-          <img src="assets/img/logo.png" alt="" width="100" height="100"> 
-          <a class="navbar-brand" href="#">QuitSmoke</a>
-          <div class="collapse navbar-collapse" id="navbarsExample07">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
-              <li>
-                <a class="nav-link"  routerLink="/theory" routerLinkActive="active">Wiedza</a>
-              </li>
-              <li>
-                <a class="nav-link" routerLink="/guidance" routerLinkActive="active">Porady</a>
-              </li>
-              <li>
-                <a class="nav-link" routerLink="/motivation" routerLinkActive="active" >Motywacja</a>
-              </li>
-              <li>
-                <a class="nav-link"  routerLink="/notebook" routerLinkActive="active" *ngIf="accountService.currentUser$ | async">Notatnik</a>
-              </li>
-              <li>
-                <a class="nav-link" routerLink="/achievement" routerLinkActive="active" *ngIf="accountService.currentUser$ | async">Osiągnięcia</a>
-              </li>
-              
-            </ul>
-          </div>
-
-
-            <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-              <a class="dropdown-toggle text-light" dropdownToggle>Witaj!</a>
-              <div class="dropdown-menu mt-3" *dropdownMenu>
-                <a class="dropdown-item" routerLink="/profile" routerLinkActive="active">Edytuj profil</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item">Zacznij od nowa</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" (click)="logout()">Wyloguj</a>
-              </div>
-            </div>
-
-            <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplete="off">
-              <input 
-              name="username"
-              [(ngModel)]="model.username"
-              class="form-control me-2" type="text" placeholder="Username">
-              <input
-              name="password" 
-              [(ngModel)]="model.password"
-              class="form-control me-2" type="password" placeholder="Password">
-              <button class="btn btn-outline-success" type="submit">Zaloguj</button>
-              <a class="btn btn-outline-secondary" routerLink="/register" routerLinkActive="active" type="submit">Zarejestruj</a>
-            </form>
-            
-          </div>
-  </div>
-
-</nav> -->
-
-
-
 
  <header>
     <div class="logo">
-    <img src="assets/img/logo.png" alt="logo" width="100" height="100" class="logo">
+    <a>
+    <img src="assets/img/logo.png" alt="logo" width="100" height="100" class="logo" routerLink="#">
+    </a>
     </div>
     <nav>
       <ul class="nav__links"> 
+            <li><a routerLink="#" routerLinkActive="active">Panel główny</a></li>
             <li><a routerLink="/theory" routerLinkActive="active">Wiedza</a></li>
-            <li><a routerLink="#" routerLinkActive="active">Porady</a></li>
             <li> <a routerLink="/motivation" routerLinkActive="active" >Motywacja</a></li>
             <li><a routerLink="/notebook" routerLinkActive="active" *ngIf="accountService.currentUser$ | async">Notatnik</a></li>
             <li><a routerLink="/achievement" routerLinkActive="active" *ngIf="accountService.currentUser$ | async">Historia</a></li>
@@ -72,8 +16,8 @@
       
     </nav>
     <div class="buttons form-inline mt-2 mt-md-0">
-      <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-        <a class="dropdown-toggle" dropdownToggle>Witaj!</a>
+      <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+        <a class="dropdown-toggle" dropdownToggle>Witaj {{user.username | titlecase}}!</a>
         <div class="dropdown-menu mt-3" *dropdownMenu>
           <a class="dropdown-item" routerLink="/profile" routerLinkActive="active">Edytuj profil</a>
           <div class="dropdown-divider"></div>
