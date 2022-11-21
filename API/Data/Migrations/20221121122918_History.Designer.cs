@@ -3,14 +3,16 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221121122918_History")]
+    partial class History
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,31 +41,6 @@ namespace API.Data.Migrations
                     b.HasIndex("SettingId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("API.Entities.History", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("AddDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Couse")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Days")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("History");
                 });
 
             modelBuilder.Entity("API.Entities.Note", b =>
@@ -138,17 +115,6 @@ namespace API.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Setting");
-                });
-
-            modelBuilder.Entity("API.Entities.History", b =>
-                {
-                    b.HasOne("API.Entities.AppUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("API.Entities.Note", b =>

@@ -3,7 +3,8 @@ import { AccountService } from '../_services/account.service';
 import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 import { Router } from '@angular/router';
-
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 
 
 @Component({
@@ -15,10 +16,18 @@ export class NavComponent implements OnInit {
   model: any = {}
   registerMode = false;
 
-  constructor(public accountService: AccountService,private router: Router) { }
+  constructor(public accountService: AccountService,private router: Router, private dialogRef: MatDialog) { }
 
   ngOnInit(): void {
   }
+
+  openDialog(){
+    this.dialogRef.open(PopUpComponent, {
+      data: { couse: 'austin' },
+    });
+  }
+
+
 
   login() {
     this.accountService.login(this.model).subscribe(response => {

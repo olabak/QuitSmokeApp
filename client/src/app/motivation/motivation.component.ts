@@ -14,7 +14,7 @@ export class MotivationComponent implements OnInit {
   profileForm: FormGroup;
   userSetting: UserSetting = null;
 
-  constructor(private _service: UserSettingsService, private accountService: AccountService) { }
+  constructor(private _service: UserSettingsService, public accountService: AccountService) { }
 
   ngOnInit(): void {
       this.initializeForm();

@@ -14,13 +14,12 @@ export class HistoryService {
 
   constructor(private http: HttpClient) { }
 //To będzie lista i czy to obsłużyć w ts componentu - mapowanie?
-  
-
-  updateNote(dto: Note) {
-    return this.http.put(this.baseUrl + `History/update`, dto);
+  listByUserId(userId: number) {
+    return this.http.get(this.baseUrl + `History/listByUserid?userId=${userId}`);
   }
 
-  addNote(dto: Note) {
+
+  addHistory(dto: History) {
     return this.http.post(this.baseUrl + `History/add`, dto);
   }
 }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AchievementComponent } from './achievement/achievement.component';
-import { GuidanceComponent } from './guidance/guidance.component';
+import { AchievementComponent } from './achievement/achievement.comonent';
 import { HomeComponent } from './home/home.component';
 import { MotivationComponent } from './motivation/motivation.component';
 import { NotebookFormComponent } from './notebook/notebook-form/notebook-form.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
   {path: 'notebook', component: NotebookComponent},
   {path: 'notebook%form', component: NotebookFormComponent},
   {path: 'achievement', component: AchievementComponent},
-  {path: 'guidance', component: GuidanceComponent},
   {path: 'theory', component: TheoryComponent},
   {path: 'motivation', component: MotivationComponent},
   {path: 'profile', component: ProfileComponent},

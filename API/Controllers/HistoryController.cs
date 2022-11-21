@@ -21,17 +21,18 @@ namespace API.Controllers
         }
 
         private HistoryManager _historyManager;
+        
 
          [HttpGet, Route("listByUserId")]
         public async Task<ActionResult> ListByUserIdAsync(int userId)
         {
             //ValidateStrings(companyId);
-            return Ok(await _historyManager.ListByUserIdAsync(userId));
+            return Ok(await HistoryManager.ListByUserIdAsync(userId));
         }
         
         [HttpPost, Route("add")]
-        public async Task<ActionResult> AddNote([FromBody] HistoryDto model){
-            return Ok(await _historyManager.AddAsync(model));
+        public async Task<ActionResult> AddHistory([FromBody] HistoryDto model){
+            return Ok(await HistoryManager.AddAsync(model));
         }
     }
 }

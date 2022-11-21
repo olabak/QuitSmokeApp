@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { AchievementComponent } from './achievement/achievement.component';
+import { AchievementComponent } from './achievement/achievement.comonent';
 import { TheoryComponent } from './theory/theory.component';
 import { NotebookComponent } from './notebook/notebook.component';
-import { GuidanceComponent } from './guidance/guidance.component';
 import { MotivationComponent } from './motivation/motivation.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SharedModule } from './_modules/shared.module';
@@ -24,7 +22,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MalignancyComponent } from './theory/malignancy/malignancy.component';
 import { FactMythComponent } from './theory/fact-myth/fact-myth.component';
 import { MechanismComponent } from './theory/mechanism/mechanism.component';
-import { BenefitsComponent } from './theory/benefits/benefits.component' 
+import { BenefitsComponent } from './theory/benefits/benefits.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
+import { environment } from '../environments/environment' 
 
 
 
@@ -37,7 +37,6 @@ import { BenefitsComponent } from './theory/benefits/benefits.component'
     AchievementComponent,
     TheoryComponent,
     NotebookComponent,
-    GuidanceComponent,
     MotivationComponent,
     ProfileComponent,
     QuizComponent,
@@ -47,9 +46,7 @@ import { BenefitsComponent } from './theory/benefits/benefits.component'
     FactMythComponent,
     MechanismComponent,
     BenefitsComponent,
-    
-    
- 
+    PopUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +56,9 @@ import { BenefitsComponent } from './theory/benefits/benefits.component'
     MatDialogModule,
     SharedModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    
+    
     
   ],
   providers: [],

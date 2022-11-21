@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { mood, Note } from 'src/app/_models/note';
 import { User } from 'src/app/_models/user';
+import { UserSetting } from 'src/app/_models/userSettings';
 import { AccountService } from 'src/app/_services/account.service';
 import { NoteService } from 'src/app/_services/notes.service';
+import { UserSettingsService } from 'src/app/_services/userSettings.service';
 
 @Component({
   selector: 'app-notebook-form',
@@ -15,7 +17,9 @@ export class NotebookFormComponent implements OnInit {
   note: Note = null;
   user: User;
   
-  constructor(private _note: NoteService, private readonly _account: AccountService) { }
+  
+  constructor(private _note: NoteService,
+     private readonly _account: AccountService) { }
 
   ngOnInit(): void {
     this.initializeForm()
@@ -64,4 +68,6 @@ private formatDate(date) {
   if (day.length < 2) day = '0' + day;
   return [year, month, day].join('-');
 }
+
+
 }

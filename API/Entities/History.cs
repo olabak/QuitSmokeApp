@@ -16,13 +16,15 @@ namespace API.Entities
         public DateTime AddDate {get; set;} = DateTime.Now;
         public string Couse { get; set; }
 
+        public int Days { get; set; }
+
         public History(){}
 
         public History(HistoryDto dto)
         {
             Id = dto.Id;
             UserId = dto.UserId;
-            AddDate = dto.AddDate;
+            AddDate = DateTime.Parse(dto.AddDate);
             Couse = dto.Couse;
         }
 

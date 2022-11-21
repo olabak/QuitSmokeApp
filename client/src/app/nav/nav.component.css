@@ -65,7 +65,7 @@ button {
 }
 
 button:hover {
-    background-color: #4d68ef84
+    background-color: #66bced
 } 
 
 .dropdown-item:hover{
@@ -79,4 +79,6 @@ button:hover {
     padding: 12px 16px;
     
   }
+
+
 

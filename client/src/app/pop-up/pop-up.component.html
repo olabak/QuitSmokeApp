@@ -1,0 +1,12 @@
+<h3 mat-dialog-title>Co spowodowało, że zapaliłeś papierosa?</h3>
+<mat-dialog-content [formGroup]="form">
+    <input mat-input class="form-control" formControlName="Couse"> 
+</mat-dialog-content>
+<mat-dialog-actions class="buttons">
+    
+        <button type="submit" class="btn btn-info" (click)="onSubmit()">Zapisz </button>
+        <button type="submit" class="btn btn-secondary" (click)="close()">Anuluj </button>
+    
+<mat-dialog-actions>
+
+

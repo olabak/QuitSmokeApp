@@ -7,7 +7,7 @@
     </div>
     <nav>
       <ul class="nav__links"> 
-            <li><a routerLink="#" routerLinkActive="active">Panel główny</a></li>
+            <li><a routerLink="/home" routerLinkActive="active">Panel główny</a></li>
             <li><a routerLink="/theory" routerLinkActive="active">Wiedza</a></li>
             <li> <a routerLink="/motivation" routerLinkActive="active" >Motywacja</a></li>
             <li><a routerLink="/notebook" routerLinkActive="active" *ngIf="accountService.currentUser$ | async">Notatnik</a></li>
@@ -21,7 +21,7 @@
         <div class="dropdown-menu mt-3" *dropdownMenu>
           <a class="dropdown-item" routerLink="/profile" routerLinkActive="active">Edytuj profil</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item">Zacznij od nowa</a>
+          <a class="dropdown-item" (click)="openDialog()">Zacznij od nowa</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" (click)="logout()">Wyloguj</a>
         </div>
@@ -31,11 +31,11 @@
       <input 
         name="username"
         [(ngModel)]="model.username"
-        class="form-control me-2" type="text" placeholder="Username">
+        class="form-control me-2" type="text" placeholder="Login">
         <input
         name="password" 
         [(ngModel)]="model.password"
-        class="form-control me-2" type="password" placeholder="Password" autocomplete="off">
+        class="form-control me-2" type="password" placeholder="Hasło" autocomplete="off">
       <a class="cta"><button  type="submit">Zaloguj się</button> </a>
       <a class="cta" routerLink="/register" routerLinkActive="active"><button>Zarejestruj</button></a>
     </form>

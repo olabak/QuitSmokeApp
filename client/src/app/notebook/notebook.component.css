@@ -11,7 +11,9 @@ table {
 .mat-header-cell{
   color: black;
   vertical-align: middle;
-  background-color: #d7ddf7;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  
 }
 
 .mat-cell{

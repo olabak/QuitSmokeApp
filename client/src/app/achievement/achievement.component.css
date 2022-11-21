@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+    background-color: #fbfaf7;
+    border: #36454F;
+    font-family: "Montserrat", sans-serif; 
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+.mat-header-cell{
+    color: black;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size:small;
+    font-family: "Montserrat", sans-serif; 
+  }
+
+  .mat-cell{
+    color: black;
+    vertical-align: middle
+  }

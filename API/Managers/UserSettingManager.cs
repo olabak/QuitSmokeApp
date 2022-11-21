@@ -46,9 +46,7 @@ namespace API.Managers
             
             var oldEntity = await _context.Set<UserSetting>().FirstOrDefaultAsync(us => us.Id == dto.Id);
             oldEntity.QuizScore = dto.QuizScore;
-
             await _context.SaveChangesAsync();
-
             return new UserSettingDto(oldEntity);
         }
 

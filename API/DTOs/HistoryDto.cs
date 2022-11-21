@@ -11,8 +11,10 @@ namespace API.DTOs
         public int Id { get; set; }
 
         public int UserId { get; set; }
-        public DateTime AddDate {get; set;} = DateTime.Now;
+        public string AddDate {get; set;} = DateTime.Now.ToString();
         public string Couse { get; set; }
+
+        public int Days { get; set; }
 
         public HistoryDto()
         {}
@@ -21,8 +23,9 @@ namespace API.DTOs
         {
             Id = entity.Id;
             UserId = entity.UserId;
-            AddDate = entity.AddDate;
+            AddDate = entity.AddDate.ToString("yyyy-MM-dd");
             Couse = entity.Couse;
+            Days = entity.Days;
         }
 
         

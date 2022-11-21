@@ -1,3 +1,4 @@
+<div *ngIf="accountService.currentUser$ | async">
 <div class="card border-info main_card">
     <div class="card-body main_card-body">
         <p class="card-title">Nie palisz już {{diff}} dni!</p>
@@ -19,9 +20,13 @@
           <div class="card-body text-dark">
             <i>{{ motivation }}</i>
             <p> Poziom twojej motywacji: {{ quizScore }}</p>
-            <p *ngIf="quizScore<6">
+            <div *ngIf="quizScore<6">
+            <p>Twoja motywacja jest słaba</p>
             <a routerLink="/motivation" routerLinkActive="active" >Popraw swoją motywację</a>
-            </p>
+            </div>
+            <div *ngIf="quizScore>6">
+              <p>Twoja motywacja jest silna</p>
+            </div>
           </div>
         </div>
 
@@ -41,56 +46,15 @@
         <div class="card border-dark h-100">
         <div class="card-header header_info">Korzyści zdrowotne</div>
           <div class="card-body text-dark">
-            <p> {{ info }}</p>
+            <p> {{ benefitTime }}</p>
+            <p> {{ benefit }}</p>
           </div>
         </div>
       </div>
 </div>
 </div>
-
-<!-- <div class="cards">
-<div class="card" style="width: 18rem;" >
-    <div class="card-body">
-    <div *ngIf="!registerMode" style='text-align: center;'>
-        <p class="card-title lead ">Zacznij walczyć z uzależnieniem i zarejestruj się już teraz!</p>
-        <div class="text-center">
-            <a routerLink="/register" routerLinkActive="active"  class="btn btn-primary">Zarejestruj się</a>
-        </div>
-    </div>
-
-    <div *ngIf="registerMode" class="container">
-        <div class="row justify-content-center">
-            <div class="col-4">
-                <app-register (cancelRegister)="cancelRegisterMode($event)" ></app-register>
-            </div>
-        </div>
-    </div>
 </div>
+<div *ngIf="!(accountService.currentUser$ | async)"> 
+  Rzuć palenie! zarejestruj się aby mój obserwoać swoje podjęte próby rzucenia palenia
 </div>
 
-
-
-<div class="card" style="width: 18rem;" >
-    <div class="card-body">
-    <h2>Nie palisz od {{ diff }} dni</h2>
-
-    </div>
-</div>
-<div class="card" style="width: 18rem;" >
-    <div class="card-body">
-        <h2>Zaoszczedziłeś {{ profit +"zł"}} </h2>
-    </div>
-</div>
-<div class="card" style="width: 18rem;" >
-    <div class="card-body">
-        <h2>Nie wypaliłeś {{ numbersOfCigarettesAll }} papierosów!</h2>
-    </div>
-</div>
-<div class="card" style="width: 18rem;" >
-    <div class="card-body">
-        <h2>Pamiętaj o swojej motywacji:</h2>
-        <p>{{motivation}}</p>
-    </div>
-</div>
-</div>
- -->
