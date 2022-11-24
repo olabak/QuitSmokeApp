@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   info: string;
   benefit: string;
   benefitTime: string;
+  risk: string;
   
   public benefits: any[] =[
     { time: "W ciagu 20min",
@@ -64,7 +65,7 @@ export class HomeComponent implements OnInit {
   ];
  
 
-  public infos: any[] = [
+  public infos: string[] = [
     "Co 6 sekund na świecie umiera jedna osoba w wyniku chorób spowodowanych paleniem papierosów",
     "Około 9 milionów - tyle osób w Polsce nałogowo pali papierosy",
     "Ponad 6 tysięcy nowych zachorowań na raka płuc wśród polek pojawia się co pół roku",
@@ -77,6 +78,18 @@ export class HomeComponent implements OnInit {
     "Około 2 tysiące osób umiera co roku w Polsce z powodu biernego palenia",
     "40 to liczba silnie rakotwórczych substancji chemicznych, które wprowadzane są przez palaczy do płuc z dymem"
     ];
+
+    public risks: string[]= [
+      "Nowotwory płuc, krtani, gardła, przełyku, jamy ustnej, języka, żołądka, trzustki, pęcherza moczowego, nosa, wargi, nerek, jelita grubego i inne",
+      "Choroba niedokrwienna serca, nadciśnienie, tętnicze, miażdżyca, zawał serca, choroby, obwodowego układu krążenia",
+      "Rozedma płuc, przewlekłe zapalenie oskrzeli, przewlekła obturacyjna choroba płuc, choroby, naczyń mózgowych, udar mózgu",
+      "Osteoporoza, zaćma, wrzody żołądka i dwunastnicy",
+      "Zaburzenia płodności, mniejsza potencja",
+      "Duszność, świszczący oddech, zaostrzenie,astmy oskrzelowej",
+      "Ziemista cera, pożółkłe palce, przedwczesne zmarszczki",
+      "Nalot na zębach, zmniejszone łaknienie, przytępiony węch i smak oraz wiele innych"
+    ]
+
 
      
   
@@ -116,10 +129,11 @@ export class HomeComponent implements OnInit {
   getRandomInfo(): void {
     var random = Math.floor(Math.random()*this.infos.length);
     this.info = this.infos[random];
-    var random_b = Math.floor(Math.random()*this.benefits.length);
-    this.benefit = this.benefits[random_b].info;
-    this.benefitTime = this.benefits[random_b].time;
-   
+    var random_benefits = Math.floor(Math.random()*this.benefits.length);
+    this.benefit = this.benefits[random_benefits].info;
+    this.benefitTime = this.benefits[random_benefits].time;
+    var ramdom_risks = Math.floor(Math.random()*this.risks.length);
+    this.risk = this.risks[ramdom_risks];
   }
 
 }

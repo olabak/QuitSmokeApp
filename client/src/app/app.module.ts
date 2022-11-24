@@ -24,7 +24,9 @@ import { FactMythComponent } from './theory/fact-myth/fact-myth.component';
 import { MechanismComponent } from './theory/mechanism/mechanism.component';
 import { BenefitsComponent } from './theory/benefits/benefits.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
-import { environment } from '../environments/environment' 
+import { environment } from '../environments/environment';
+import { TreatmentComponent } from './theory/treatment/treatment.component';
+import { WeightComponent } from './theory/weight/weight.component' 
 
 
 
@@ -47,6 +49,8 @@ import { environment } from '../environments/environment'
     MechanismComponent,
     BenefitsComponent,
     PopUpComponent,
+    TreatmentComponent,
+    WeightComponent,
   ],
   imports: [
     BrowserModule,
