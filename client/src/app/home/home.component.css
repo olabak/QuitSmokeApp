@@ -48,5 +48,15 @@ a{
 }
 
 .title{
+    font-family: "Montserrat", sans-serif; 
     font-size: 30px;
+    display:block;
+    height: 100px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.element{
+    padding-bottom: 20px;
+    padding-top: 150px;
 }

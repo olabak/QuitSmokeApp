@@ -138,7 +138,7 @@ export class HomeComponent implements OnInit {
       this.profit = this.diff*this.numbersOfCigarettes*this.priceOfPacket/20;
       this.numbersOfCigarettesAll = this.diff*this.numbersOfCigarettes;
       this.lifeExpand = Math.round(this.numbersOfCigarettesAll*11/60/24);
-      console.log(this.lifeExpand)
+      console.log(this.priceOfPacket)
 
     })}; 
 
