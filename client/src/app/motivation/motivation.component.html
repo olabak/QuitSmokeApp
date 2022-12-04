@@ -5,10 +5,10 @@
 
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" *ngIf="(accountService.currentUser$ | async)">
     <div class="form-group">
-        <label >Co jest moją motywacją?</label>
+        <p>Co jest moją motywacją?<p>
         <textarea class="form-control"  rows="3" formControlName="motivation"></textarea>
       </div>
-      <button type="submit" class="btn btn-info">Zapisz</button>
+      <button type="submit" class="btn btn-primary">Zapisz</button>
 </form>
 
 

@@ -29,6 +29,12 @@ namespace API.Controllers
             //ValidateStrings(companyId);
             return Ok(await HistoryManager.ListByUserIdAsync(userId));
         }
+
+        [HttpGet, Route("LastHistoryByUserId")]
+        public async Task<ActionResult> LastHistoryByUserIdAsync(int userId)
+        {
+            return Ok(await HistoryManager.LastHistoryByUserIdAsync(userId));
+        }
         
         [HttpPost, Route("add")]
         public async Task<ActionResult> AddHistory([FromBody] HistoryDto model){

@@ -14,6 +14,8 @@ import { TheoryComponent } from './theory/theory.component';
 import { MechanismComponent } from './theory/mechanism/mechanism.component';
 import { TreatmentComponent } from './theory/treatment/treatment.component';
 import { WeightComponent } from './theory/weight/weight.component';
+import { BenefitsComponent } from './theory/benefits/benefits.component';
+import { PassiveSmokingComponent } from './theory/passive-smoking/passive-smoking.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,9 +30,10 @@ const routes: Routes = [
   {path: 'theory/malignancy', component: MalignancyComponent},
   {path: 'theory/facts?myths', component: FactMythComponent},
   {path: 'theory/mechanism', component: MechanismComponent},
-  {path: 'theory/benefits', component: MechanismComponent},
+  {path: 'theory/benefits', component: BenefitsComponent},
   {path: 'theory/treatment', component: TreatmentComponent},
   {path: 'theory/weight', component: WeightComponent},
+  {path: 'theory/passive-smoking', component: PassiveSmokingComponent},
   {path: '**', component: HomeComponent, pathMatch: 'full'},
 
 ];

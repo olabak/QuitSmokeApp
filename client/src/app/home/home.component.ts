@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { AccountService } from '../_services/account.service';
 import { UserSettingsService } from '../_services/userSettings.service';
 import { UserSetting } from '../_models/userSettings';
+import { History } from '../_models/history';
+import { HistoryService } from '../_services/history.service';
 
 
 
@@ -14,6 +16,7 @@ import { UserSetting } from '../_models/userSettings';
 export class HomeComponent implements OnInit {
   registerMode = false;
   userSetting: UserSetting = null;
+  history: History = null;
   numbersOfCigarettes: number;
   lastSmokeDate: Date;
   yearsOfSmoking: number;
@@ -29,6 +32,7 @@ export class HomeComponent implements OnInit {
   benefit: string;
   benefitTime: string;
   risk: string;
+  lifeExpand: number;
   
   public benefits: any[] =[
     { time: "W ciagu 20min",
@@ -94,11 +98,12 @@ export class HomeComponent implements OnInit {
      
   
 
-  constructor(public accountService: AccountService, private userService: UserSettingsService) { }
+  constructor(public accountService: AccountService, private userService: UserSettingsService, private historyService: HistoryService) { }
 
   ngOnInit(): void {
     this.getUserSetting()
     this.getRandomInfo()
+    this.getHistory()
   }
 
   registerToggle() {
@@ -115,16 +120,27 @@ export class HomeComponent implements OnInit {
       { 
         this.userSetting = res;
         this.numbersOfCigarettes = res.numbersOfCigarettes;
-        this.lastSmokeDate = res.lastSmokeDate;
+        //this.lastSmokeDate = res.lastSmokeDate;
         this.priceOfPacket = res.priceOfPacket;
         this.yearsOfSmoking = res.yearsOfSmoking;
         this.motivation = res.motivation;
         this.quizScore = res.quizScore;
-        this.diff = Math.floor((Date.parse(this.today.toString()) - Date.parse(this.lastSmokeDate.toString())) / 86400000);
-        this.profit = this.diff*this.numbersOfCigarettes*this.priceOfPacket/20;
-        this.numbersOfCigarettesAll = this.diff*this.numbersOfCigarettes;
+        
       });
   }
+
+  getHistory():void {
+    this.historyService.lastHistoryByUserId(JSON.parse(localStorage.getItem('user')).id).subscribe((res: any) => {
+      console.log(res)
+      this.history=res; 
+      this.lastSmokeDate = res.addDate;
+      this.diff = Math.floor((Date.parse(this.today.toString()) - Date.parse(this.lastSmokeDate.toString())) / 86400000);
+      this.profit = this.diff*this.numbersOfCigarettes*this.priceOfPacket/20;
+      this.numbersOfCigarettesAll = this.diff*this.numbersOfCigarettes;
+      this.lifeExpand = Math.round(this.numbersOfCigarettesAll*11/60/24);
+      console.log(this.lifeExpand)
+
+    })}; 
 
   getRandomInfo(): void {
     var random = Math.floor(Math.random()*this.infos.length);

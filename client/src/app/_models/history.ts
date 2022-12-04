@@ -3,4 +3,5 @@ export interface History{
     userId: number;
     couse: string;
     addDate: string;
+    days: number;
 }

@@ -26,7 +26,8 @@ import { BenefitsComponent } from './theory/benefits/benefits.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { environment } from '../environments/environment';
 import { TreatmentComponent } from './theory/treatment/treatment.component';
-import { WeightComponent } from './theory/weight/weight.component' 
+import { WeightComponent } from './theory/weight/weight.component';
+import { PassiveSmokingComponent } from './theory/passive-smoking/passive-smoking.component' 
 
 
 
@@ -51,6 +52,7 @@ import { WeightComponent } from './theory/weight/weight.component'
     PopUpComponent,
     TreatmentComponent,
     WeightComponent,
+    PassiveSmokingComponent,
   ],
   imports: [
     BrowserModule,

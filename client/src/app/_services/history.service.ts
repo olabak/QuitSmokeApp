@@ -18,7 +18,10 @@ export class HistoryService {
     return this.http.get(this.baseUrl + `History/listByUserid?userId=${userId}`);
   }
 
-
+  lastHistoryByUserId(userId: number) {
+    return this.http.get(this.baseUrl + `History/lastHistoryByUserId?userId=${userId}`);
+  }
+  
   addHistory(dto: History) {
     return this.http.post(this.baseUrl + `History/add`, dto);
   }

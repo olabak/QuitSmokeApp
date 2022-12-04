@@ -25,6 +25,12 @@ namespace API.Managers
             return history.Select(history => new HistoryDto(history)).ToList(); //Mapujemy do DTo, żeby bezpośrednio na frnot nie wysyłąć danych
         }
 
+        internal async Task<HistoryDto> LastHistoryByUserIdAsync(int userId){
+            var history = await _context.Set<History>().Where(history => history.UserId == userId).ToListAsync();
+            var history2 = history.Select(history => new HistoryDto(history)).ToList();
+            return history2.OrderByDescending(h => h.AddDate).FirstOrDefault();
+        }
+
         internal async Task<HistoryDto> AddAsync(HistoryDto dto){
             var entity = new History(dto);
             var lastHistory = _context.Set<History>().Where(history => history.UserId == dto.UserId)

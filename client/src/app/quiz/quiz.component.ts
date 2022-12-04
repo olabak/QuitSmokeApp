@@ -28,12 +28,12 @@ export class QuizComponent implements OnInit {
       name:"question1"},
     {
       number: 2,
-      content:"Czy decydujesz się na to dla siebie samej/samego ? (podkreśl TAK) Czy dla kogoś innego np. dla rodziny? ( podkreśl NIE)",
+      content:"Czy decydujesz się na to dla siebie samej/samego? (podkreśl TAK) Czy dla kogoś innego np. dla rodziny? (podkreśl NIE)",
       name:"question2",
     },
     {
       number: 3,
-      content:"Czy podejmowałaś już próby rzucenia palenia?",
+      content:"Czy podejmowałeś/aś już próby rzucenia palenia?",
       name:"question3",
     },
     {
@@ -48,7 +48,7 @@ export class QuizComponent implements OnInit {
     },
     {
       number: 6,
-      content:"Czy mogłabyś/mógłbyś liczyć na pomoc rodziny , przyjaciółtp. Gdybyś chciała rzucić palenie?",
+      content:"Czy mogłbyś/mógłabyś liczyć na pomoc rodziny, przyjaciół itp. Gdybyś chciał/a rzucić palenie?",
       name:"question6",
     },
     {
@@ -63,12 +63,12 @@ export class QuizComponent implements OnInit {
     },
     {
       number: 9,
-      content:"Czy jesteś zadowolony ze swojej pracyi trybu życia?",
+      content:"Czy jesteś zadowolony ze swojej pracy i trybu życia?",
       name:"question9",
     },
     {
       number: 10,
-      content:"Czy orientujesz się ,gdzie i w jaki sposób szukać pomocy,gdybyś miał(a) problemy z utrzymaniem abstynencji?",
+      content:"Czy orientujesz się, gdzie i w jaki sposób szukać pomocy, gdybyś miał/a problemy z utrzymaniem abstynencji?",
       name:"question10",
     },
     {

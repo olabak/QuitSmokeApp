@@ -1,69 +1,77 @@
 <div *ngIf="accountService.currentUser$ | async">
-<div class="card border-info main_card">
-    <div class="card-body main_card-body">
-        <p class="card-title">Nie palisz już {{diff}} dni!</p>
+  <div class="card border-primary main_card">
+      <div class="card-body main_card-body">
+          <p class="card-title">Nie palisz już {{diff}} dni!</p>
+      </div>
     </div>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+          <div class="card border-primary h-100">
+          <div class="card-header header">Raport dnia</div>
+            <div class="card-body text-dark">
+              <p class="card-title profit">Twoje konto zyskało {{ profit +"zł"}}! </p>
+              <div *ngIf="lifeExpand>1">
+                <p class="card-title profit">Twoje życie wydłużyło się o {{ lifeExpand }} dni</p>
+              </div>
+              <div *ngIf="lifeExpand==1">
+                <p class="card-title profit">Twoje życie wydłużyło się o {{ lifeExpand }} dzień</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-primary h-100">
+          <div class="card-header header">Motywacja</div>
+            <div class="card-body text-dark">
+              <p>Twoja motywacja to: <i>{{ motivation }}</i></p>
+              <p> Poziom twojej motywacji: {{ quizScore }}</p>
+              <div *ngIf="quizScore<6">
+              <p>Twoja motywacja jest słaba</p>
+              <a routerLink="/motivation" routerLinkActive="active" >Popraw swoją motywację</a>
+              </div>
+              <div *ngIf="quizScore>6">
+                <p>Twoja motywacja jest silna</p>
+              </div>
+            </div>
+          </div>
+
   </div>
-<div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col">
-        <div class="card border-dark h-100">
-        <div class="card-header header">Raport dnia</div>
-          <div class="card-body text-dark">
-            <p class="card-title">Nie wypaliłeś {{ numbersOfCigarettesAll }} papierosów! </p>
-            <p class="card-title">Zaoszczedziłeś {{ profit +"zł"}}! </p>
-          </div>
-        </div>
-      </div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4 second">
       <div class="col">
-        <div class="card border-dark h-100">
-        <div class="card-header header">Motywacja</div>
-          <div class="card-body text-dark">
-            <i>{{ motivation }}</i>
-            <p> Poziom twojej motywacji: {{ quizScore }}</p>
-            <div *ngIf="quizScore<6">
-            <p>Twoja motywacja jest słaba</p>
-            <a routerLink="/motivation" routerLinkActive="active" >Popraw swoją motywację</a>
-            </div>
-            <div *ngIf="quizScore>6">
-              <p>Twoja motywacja jest silna</p>
+          <div class="card border-primary h-100">
+          <div class="card-header header_benefit">Palenie w liczbach</div>
+            <div class="card-body text-dark">
+              <p> {{ info }}</p>
             </div>
           </div>
         </div>
-
-</div >
-</div>
-
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-        <div class="card border-dark h-100">
-        <div class="card-header header_benefit">Palenie w liczbach</div>
-          <div class="card-body text-dark">
-            <p> {{ info }}</p>
+        <div class="col">
+          <div class="card border-primary h-100">
+          <div class="card-header header_benefit">Korzyści zdrowotne</div>
+            <div class="card-body text-dark">
+              <p> {{ benefitTime }}</p>
+              <p> {{ benefit }}</p>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card border-dark h-100">
-        <div class="card-header header_info">Korzyści zdrowotne</div>
-          <div class="card-body text-dark">
-            <p> {{ benefitTime }}</p>
-            <p> {{ benefit }}</p>
+        </div>  
+        <div class="col">
+          <div class="card border-primary h-100">
+          <div class="card-header header_benefit">Zagrożenia zdrowotne</div>
+            <div class="card-body text-dark">
+              <p> {{ risk }}</p>
+            </div>
           </div>
-        </div>
-      </div>  
-      <div class="col">
-        <div class="card border-dark h-100">
-        <div class="card-header header_benefit">Zagrożenia zdrowotne</div>
-          <div class="card-body text-dark">
-            <p> {{ risk }}</p>
-          </div>
-        </div>
-      </div> 
-</div>
-
-
+        </div> 
+  </div>
 </div>
 <div *ngIf="!(accountService.currentUser$ | async)"> 
-  Rzuć palenie! zarejestruj się aby mój obserwoać swoje podjęte próby rzucenia palenia
+  <img src="assets/img/graylogo.png" class="rounded float-left" >
+  <div class="title">
+  <p>Zadbaj o swoje płuca</p>
+  <p>Rzuć palenie! zarejestruj się aby mój obserwować swoje podjęte próby rzucenia palenia </p>
+  </div>
+  
 </div>
 
