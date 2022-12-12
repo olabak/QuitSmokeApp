@@ -41,22 +41,55 @@
     justify-content: center;
     align-items: center;
     font-size:x-large;
+    background-color: hsl(202, 73%, 85%);
+    border-color: transparent;
 }
 
 a{
     color: #66bced;
 }
 
+.circle{
+    width: 200px;
+    height: 200px;
+    background: url(/assets/img/bluelogo.png) no-repeat;
+    background-size: cover;
+    border-radius: 15%;
+    float: right;
+    shape-outside: circle();
+    margin: 20px 20px 20px 10px;
+}
+
 .title{
     font-family: "Montserrat", sans-serif; 
     font-size: 30px;
-    display:block;
-    height: 100px;
-    line-height: 30px;
+    color: hsl(204, 23%, 18%);
+    margin-top: 100px;
+    display: inline-block;
+    font-weight: 100;
+}
+
+header{
+    background-size: cover;
+    height: 250px;
+    background-color: #66bced;
+    border-radius: 15px;
     text-align: center;
+    font-family: "Montserrat", sans-serif;
 }
 
 .element{
     padding-bottom: 20px;
     padding-top: 150px;
 }
+h2,p{
+    font-family: "Montserrat", sans-serif;
+}
+
+
+
+
+
+
+
+

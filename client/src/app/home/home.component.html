@@ -67,11 +67,40 @@
   </div>
 </div>
 <div *ngIf="!(accountService.currentUser$ | async)"> 
-  <img src="assets/img/bluelogo.png" class="rounded float-left" >
+  <!-- <img src="assets/img/bluelogo.png" class="rounded float-left" >
   <div class="title">
   <p class="element">Zadbaj o swoje płuca i rzuć palenie!</p>
   <p>Zarejestruj się aby znaleźć motywację oraz móc obserwować swoje podjęte próby rzucenia palenia </p>
+  </div> -->
+  <header>
+    <div class=" circle"> </div>
+    <div class="title"> Zadbaj o swoje płuca i rzuć palenie!</div>
+</header>
+
+<section class="py-5 border-bottom" id="features">
+  <div class="container px-5 my-5">
+      <div class="row gx-5">
+          <div class="col-lg-4 mb-5 mb-lg-0">
+              
+              <h2 class="h4 fw-bolder">Wiedza</h2>
+              <p>Wejdź w zakładkę Wiedza i dowiedz się jak zacząć palenie, jakich objawów się spodziewać i jak rozpocząć walkę z uazleźnieniem!</p>
+             
+          </div>
+          <div class="col-lg-4 mb-5 mb-lg-0">
+              
+              <h2 class="h4 fw-bolder">Motywacja</h2>
+              <p>Znajdź swoją motywację, która będzie ci dawała siłe podczas walki z nałogiem</p>
+              
+          </div>
+          <div class="col-lg-4">
+              
+              <h2 class="h4 fw-bolder">Zarejestruj się</h2>
+              <p>Zarejestruj się aby móc korzystać z innych opcji takie jak liczenie dni wolnych od palenia, zapisywania swojej motywacji i historii swojej walki z paleniem</p>
+              
+          </div>
+      </div>
   </div>
-  
+</section>
+
 </div>
 
