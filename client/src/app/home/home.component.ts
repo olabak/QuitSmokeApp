@@ -5,6 +5,8 @@ import { UserSettingsService } from '../_services/userSettings.service';
 import { UserSetting } from '../_models/userSettings';
 import { History } from '../_models/history';
 import { HistoryService } from '../_services/history.service';
+import { Observable, Subject } from 'rxjs';
+import { identifierName } from '@angular/compiler';
 
 
 
@@ -33,6 +35,12 @@ export class HomeComponent implements OnInit {
   benefitTime: string;
   risk: string;
   lifeExpand: number;
+  //private priceOfPacket = new Subject<number | string>();
+
+  //public priceOfPacket$: Observable<number | string> = this.priceOfPacket.asObservable();
+  //public numbersOfCigarettes$: Observable<number | string> = this.subject.asObservable();
+
+ 
   
   public benefits: any[] =[
     { time: "W ciagu 20min",
@@ -101,9 +109,14 @@ export class HomeComponent implements OnInit {
   constructor(public accountService: AccountService, private userService: UserSettingsService, private historyService: HistoryService) { }
 
   ngOnInit(): void {
-    this.getUserSetting()
-    this.getRandomInfo()
-    this.getHistory()
+    this.getUserSetting();
+    this.getRandomInfo();
+    // this.priceOfPacket$.subscribe(value => {
+    //   // do some stuff with value
+    //   // when value is a string, it is NaN
+    //   console.log(value);
+    // });
+    
   }
 
   registerToggle() {
@@ -116,17 +129,23 @@ export class HomeComponent implements OnInit {
 
 
   private getUserSetting(): void {
-      this.userService.getById(JSON.parse(localStorage.getItem('user')).id).subscribe((res: UserSetting) => 
-      { 
-        this.userSetting = res;
-        this.numbersOfCigarettes = res.numbersOfCigarettes;
-        //this.lastSmokeDate = res.lastSmokeDate;
-        this.priceOfPacket = res.priceOfPacket;
-        this.yearsOfSmoking = res.yearsOfSmoking;
-        this.motivation = res.motivation;
-        this.quizScore = res.quizScore;
-        
-      });
+    if(!(JSON.parse(localStorage.getItem('user'))))
+      return;
+
+    this.userService.getById(JSON.parse(localStorage.getItem('user')).id).subscribe((res: UserSetting) => 
+    { 
+      console.log("res getUserSetting", res);
+      this.userSetting = res;
+      this.numbersOfCigarettes = res.numbersOfCigarettes;
+      //this.lastSmokeDate = res.lastSmokeDate;
+      
+      //this.priceOfPacket$.next();
+      this.priceOfPacket = res.priceOfPacket;
+      this.yearsOfSmoking = res.yearsOfSmoking;
+      this.motivation = res.motivation;
+      this.quizScore = res.quizScore;
+      this.getHistory();
+    });
   }
 
   getHistory():void {
@@ -134,11 +153,14 @@ export class HomeComponent implements OnInit {
       console.log(res)
       this.history=res; 
       this.lastSmokeDate = res.addDate;
+      //this.diff = res.days
       this.diff = Math.floor((Date.parse(this.today.toString()) - Date.parse(this.lastSmokeDate.toString())) / 86400000);
-      this.profit = this.diff*this.numbersOfCigarettes*this.priceOfPacket/20;
       this.numbersOfCigarettesAll = this.diff*this.numbersOfCigarettes;
+      this.profit = this.diff*this.numbersOfCigarettes*this.priceOfPacket/20;
+      //console.log(this.profit);
+      
       this.lifeExpand = Math.round(this.numbersOfCigarettesAll*11/60/24);
-      console.log(this.priceOfPacket)
+      //console.log(this.priceOfPacket)
 
     })}; 
 

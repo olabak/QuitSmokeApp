@@ -1,3 +1,8 @@
 .card{
     font-size: larger;
 }
+
+.nosmokephoto{
+    float: right;
+    margin-right: 190px;
+}

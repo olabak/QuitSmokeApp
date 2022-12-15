@@ -5,6 +5,7 @@ using API.Data;
 using API.DTOs;
 using API.Entities;
 using API.Interfaces;
+using API.Managers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,9 @@ namespace API.Controllers
     {
         private readonly DataContext _context;
         private readonly ITokenService _tokenService;
+
+        private HistoryManager _historyManager;
+        public HistoryManager HistoryManager => _historyManager ??= new HistoryManager(_context);
         public AccountController(DataContext context, ITokenService tokenService)
         {
             _tokenService = tokenService;
@@ -48,12 +52,18 @@ namespace API.Controllers
                 SettingId = defaultUserSetting.Id
             };
 
+            
             _context.Add(defaultUserSetting);
             _context.Add(user);
+
+            // var historyDto = new HistoryDto(){UserId = user.Id,  Couse = "Rozpoczęcie", Days=0};
+            // await _historyManager.AddAsync(historyDto);
+            
             await _context.SaveChangesAsync();
 
             return new UserDto
             {
+                Id = user.Id,
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user)
             };

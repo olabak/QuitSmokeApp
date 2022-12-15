@@ -1,3 +1,12 @@
 .card{
     font-size: larger;
+    display: flex;
+}
+
+.nosmokephoto{
+    margin-left:550px;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
 }

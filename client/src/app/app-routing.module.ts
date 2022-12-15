@@ -16,6 +16,8 @@ import { TreatmentComponent } from './theory/treatment/treatment.component';
 import { WeightComponent } from './theory/weight/weight.component';
 import { BenefitsComponent } from './theory/benefits/benefits.component';
 import { PassiveSmokingComponent } from './theory/passive-smoking/passive-smoking.component';
+import { ReasonsComponent } from './theory/reasons/reasons.component';
+import { DiagnosticComponent } from './theory/diagnostic/diagnostic.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -34,6 +36,8 @@ const routes: Routes = [
   {path: 'theory/treatment', component: TreatmentComponent},
   {path: 'theory/weight', component: WeightComponent},
   {path: 'theory/passive-smoking', component: PassiveSmokingComponent},
+  {path: 'theory/reasons', component: ReasonsComponent},
+  {path: 'theory/diagnostic', component: DiagnosticComponent},
   {path: '**', component: HomeComponent, pathMatch: 'full'},
 
 ];

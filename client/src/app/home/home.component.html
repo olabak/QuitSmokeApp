@@ -9,7 +9,14 @@
           <div class="card border-primary h-100">
           <div class="card-header header">Raport dnia</div>
             <div class="card-body text-dark">
-              <p class="card-title profit">Twoje konto zyskało {{ profit +"zł"}}! </p>
+              <div *ngIf="profit!==undefine"> 
+                <p class="card-title profit">Twoje konto zyskało {{ profit +"zł"}}! </p> 
+              </div>
+              <div *ngIf="profit==undefine">
+                <p class="card-title profit">Twoje konto zyskało 0! </p>
+                <p> wypełnij swój profil aby liczyć dni</p>
+              </div>
+              
               <div *ngIf="lifeExpand>1">
                 <p class="card-title profit">Twoje życie wydłużyło się o {{ lifeExpand }} dni</p>
               </div>
@@ -67,12 +74,8 @@
   </div>
 </div>
 <div *ngIf="!(accountService.currentUser$ | async)"> 
-  <!-- <img src="assets/img/bluelogo.png" class="rounded float-left" >
-  <div class="title">
-  <p class="element">Zadbaj o swoje płuca i rzuć palenie!</p>
-  <p>Zarejestruj się aby znaleźć motywację oraz móc obserwować swoje podjęte próby rzucenia palenia </p>
-  </div> -->
-  <header>
+  
+<header>
     <div class=" circle"> </div>
     <div class="title"> Zadbaj o swoje płuca i rzuć palenie!</div>
 </header>

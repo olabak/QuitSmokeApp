@@ -1,10 +1,11 @@
 table {
     width: 100%;
     background-color: #fbfaf7;
-    border: #36454F;
+    
     font-family: "Montserrat", sans-serif; 
     table-layout: fixed;
     border-collapse: collapse;
+    
   }
 .mat-header-cell{
     color: black;
@@ -12,7 +13,9 @@ table {
     font-weight: 500;
     font-size:small;
     font-family: "Montserrat", sans-serif; 
+    background-color: #66bced;
   }
+ 
 
   .mat-cell{
     color: black;

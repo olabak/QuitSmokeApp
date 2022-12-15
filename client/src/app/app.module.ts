@@ -27,7 +27,9 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 import { environment } from '../environments/environment';
 import { TreatmentComponent } from './theory/treatment/treatment.component';
 import { WeightComponent } from './theory/weight/weight.component';
-import { PassiveSmokingComponent } from './theory/passive-smoking/passive-smoking.component' 
+import { PassiveSmokingComponent } from './theory/passive-smoking/passive-smoking.component';
+import { ReasonsComponent } from './theory/reasons/reasons.component';
+import { DiagnosticComponent } from './theory/diagnostic/diagnostic.component' 
 
 
 
@@ -53,6 +55,8 @@ import { PassiveSmokingComponent } from './theory/passive-smoking/passive-smokin
     TreatmentComponent,
     WeightComponent,
     PassiveSmokingComponent,
+    ReasonsComponent,
+    DiagnosticComponent,
   ],
   imports: [
     BrowserModule,
