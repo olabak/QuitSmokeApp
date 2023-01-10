@@ -153,8 +153,15 @@ export class HomeComponent implements OnInit {
       console.log(res)
       this.history=res; 
       this.lastSmokeDate = res.addDate;
-      //this.diff = res.days
-      this.diff = Math.floor((Date.parse(this.today.toString()) - Date.parse(this.lastSmokeDate.toString())) / 86400000);
+      if(res.isFirst)
+      {
+        this.diff = res.days
+      }
+      else
+      {
+        this.diff = Math.floor((Date.parse(this.today.toString()) - Date.parse(this.lastSmokeDate.toString())) / 86400000);
+      }
+      
       this.numbersOfCigarettesAll = this.diff*this.numbersOfCigarettes;
       this.profit = this.diff*this.numbersOfCigarettes*this.priceOfPacket/20;
       //console.log(this.profit);

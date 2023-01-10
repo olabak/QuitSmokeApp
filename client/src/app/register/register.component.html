@@ -10,6 +10,11 @@
         <input type="password" class="form-control" name="password" 
             [(ngModel)]="model.password" placeholder="Hasło"  >
     </div>
+    <div class="form-group">
+        <input type="date" class="form-control" name="lastSmoke" 
+            [(ngModel)]="model.lastSmoke" placeholder="Data ostatniego papierosa"  >
+        
+      </div>
     <div class="form-group text-center">
         <button class="btn btn-primary mr-2" type="submit">Zapisz</button>
         <button class="btn btn-light mr-2" routerLink="" routerLinkActive="active" type="button">Anuluj</button>

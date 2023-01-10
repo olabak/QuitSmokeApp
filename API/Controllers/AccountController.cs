@@ -1,3 +1,4 @@
+using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,10 +56,13 @@ namespace API.Controllers
             
             _context.Add(defaultUserSetting);
             _context.Add(user);
+            await _context.SaveChangesAsync();
+            var entity = await _context.Set<AppUser>().FirstOrDefaultAsync(u=>u.UserName == user.UserName);
+            var lastSmoke = (int)Math.Abs((DateTime.Now - (registerDto.LastSmoke is null ? DateTime.Now : (DateTime)registerDto.LastSmoke)).TotalDays);
+            var historyDto = new HistoryDto(){UserId = entity.Id,  Couse = "Rozpoczęcie", Days=lastSmoke, IsFirst=true};
+            var hm = new HistoryManager(_context);
+            await hm.AddAsync(historyDto);
 
-            // var historyDto = new HistoryDto(){UserId = user.Id,  Couse = "Rozpoczęcie", Days=0};
-            // await _historyManager.AddAsync(historyDto);
-            
             await _context.SaveChangesAsync();
 
             return new UserDto

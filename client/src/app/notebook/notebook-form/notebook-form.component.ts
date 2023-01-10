@@ -51,7 +51,7 @@ export class NotebookFormComponent implements OnInit {
 
   private initializeForm() {
     this.notebookForm = new FormGroup({
-      mood: new FormControl(0),
+      'mood': new FormControl(0),
       'moodDescription': new FormControl(),
       symptom: new FormControl(0),
       'symptomDescription': new FormControl(),

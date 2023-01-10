@@ -16,6 +16,7 @@ namespace API.DTOs
 
         public int Days { get; set; }
 
+        public bool IsFirst { get; set; }
         public HistoryDto()
         {}
 
@@ -26,6 +27,7 @@ namespace API.DTOs
             AddDate = entity.AddDate.ToString("yyyy-MM-dd");
             Couse = entity.Couse;
             Days = entity.Days;
+            IsFirst = entity.IsFirst;
         }
 
         

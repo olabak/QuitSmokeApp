@@ -13,5 +13,7 @@ namespace API.DTOs
 
         [Required]
         public string Password { get; set; }
+
+        public DateTime? LastSmoke { get; set; }
     }
 }

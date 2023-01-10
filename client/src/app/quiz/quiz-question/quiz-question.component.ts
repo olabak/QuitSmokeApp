@@ -15,16 +15,13 @@ values: any = [
 ];
 
 @Output() selectedOption = new EventEmitter<string>();
-//selectedOption: string = ''
 
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
   radioChangeHandler(event: any){
-    //this.selectedOption = event.target.value;
     this.selectedOption.emit(event)
   }
 

@@ -17,6 +17,7 @@ namespace API.Entities
         public string Couse { get; set; }
 
         public int Days { get; set; }
+        public bool IsFirst { get; set; }
 
         public History(){}
 
@@ -26,6 +27,7 @@ namespace API.Entities
             UserId = dto.UserId;
             AddDate = DateTime.Parse(dto.AddDate);
             Couse = dto.Couse;
+            IsFirst = dto.IsFirst;
         }
 
     }

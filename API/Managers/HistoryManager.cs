@@ -26,16 +26,19 @@ namespace API.Managers
         }
 
         internal async Task<HistoryDto> LastHistoryByUserIdAsync(int userId){
-            var history = await _context.Set<History>().Where(history => history.UserId == userId).ToListAsync();
-            var history2 = history.Select(history => new HistoryDto(history)).ToList();
-            return history2.OrderByDescending(h => h.AddDate).FirstOrDefault();
+            var history = await _context.Set<History>().Where(history => history.UserId == userId)
+                .OrderByDescending(h => h.AddDate).Select(history => new HistoryDto(history)).ToListAsync();
+            return history.FirstOrDefault();
         }
 
         internal async Task<HistoryDto> AddAsync(HistoryDto dto){
             var entity = new History(dto);
             var lastHistory = _context.Set<History>().Where(history => history.UserId == dto.UserId)
             .OrderByDescending(h => h.AddDate).FirstOrDefault();
-            entity.Days = (int)Math.Abs((DateTime.Now - (lastHistory is null ? DateTime.Now: lastHistory.AddDate)).TotalDays);
+            if (lastHistory is null)
+                entity.Days = dto.Days;
+            if (lastHistory is not null)
+                entity.Days = (int)Math.Abs((DateTime.Now - (lastHistory is null ? DateTime.Now: lastHistory.AddDate)).TotalDays);
             await _context.AddAsync(entity);
             await _context.SaveChangesAsync();
             return new HistoryDto(entity);
