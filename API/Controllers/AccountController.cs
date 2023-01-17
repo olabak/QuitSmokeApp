@@ -31,9 +31,7 @@ namespace API.Controllers
             if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
 
             using var hmac = new HMACSHA512();
-            
-            // tworzenie UserSetting
-            //db.UserSetting.Max(Id)++
+
             var maxUserSetting = await _context.Set<UserSetting>().MaxAsync(us => us.Id);
 
             var defaultUserSetting = new UserSetting

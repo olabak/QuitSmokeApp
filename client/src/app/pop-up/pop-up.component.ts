@@ -59,14 +59,4 @@ export class PopUpComponent implements OnInit {
     return [year, month, day].join('-');
   }
 
-  // onSubmit() {
-  //   this._service.UpdateUserMotivation({...this.profileForm.value, Id: JSON.parse(localStorage.getItem('user')).id}).subscribe(
-  //     (res: UserSetting) => 
-  //   { 
-  //     console.log(res);
-  //     this.userSetting = res;
-  //     this.profileForm.patchValue(res);
-  //   });
-  // }
-
 }

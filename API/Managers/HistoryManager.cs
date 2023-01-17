@@ -21,8 +21,7 @@ namespace API.Managers
         internal async Task<List<HistoryDto>> ListByUserIdAsync(int userId)
         {
             var history = await _context.Set<History>().Where(history => history.UserId == userId).ToListAsync();
-            //Musimy ściągnąć liste
-            return history.Select(history => new HistoryDto(history)).ToList(); //Mapujemy do DTo, żeby bezpośrednio na frnot nie wysyłąć danych
+            return history.Select(history => new HistoryDto(history)).ToList(); 
         }
 
         internal async Task<HistoryDto> LastHistoryByUserIdAsync(int userId){

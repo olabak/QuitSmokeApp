@@ -21,11 +21,7 @@ export class NotebookComponent implements OnInit {
   lastSmokeDate: Date;
   diff: number;
   userSetting: UserSetting = null;
-  
-      
-  //Element_data = sciągnieta z kontrolera tablica przypisanych do użytkownika notatek Czy tu muszę jakoś sformatować dane?     
-      
-  
+       
   constructor(private _note: NoteService, private _account: AccountService,private userService: UserSettingsService) { }
 
   ngOnInit(): void {
@@ -35,7 +31,6 @@ export class NotebookComponent implements OnInit {
   getNotes():void {
     this._note.listByUserId(JSON.parse(localStorage.getItem('user')).id).subscribe((res: Note[]) => {
       this.dataSource = res;
-      
     })
   }
 

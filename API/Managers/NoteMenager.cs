@@ -33,8 +33,7 @@ namespace API.Managers
         internal async Task<List<NoteDto>> ListByUserIdAsync(int userId)
         {
             var notes = await _context.Set<Note>().Where(note => note.UserId == userId).ToListAsync();
-            //Musimy ściągnąć liste
-            return notes.Select(note => new NoteDto(note)).ToList(); //Mapujemy do DTo, żeby bezpośrednio na frnot nie wysyłąć danych
+            return notes.Select(note => new NoteDto(note)).ToList(); 
         }
 
         internal async Task<NoteDto> AddAsync(NoteDto dto){

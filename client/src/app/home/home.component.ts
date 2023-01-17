@@ -35,12 +35,6 @@ export class HomeComponent implements OnInit {
   benefitTime: string;
   risk: string;
   lifeExpand: number;
-  //private priceOfPacket = new Subject<number | string>();
-
-  //public priceOfPacket$: Observable<number | string> = this.priceOfPacket.asObservable();
-  //public numbersOfCigarettes$: Observable<number | string> = this.subject.asObservable();
-
- 
   
   public benefits: any[] =[
     { time: "W ciagu 20min",
@@ -111,12 +105,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getUserSetting();
     this.getRandomInfo();
-    // this.priceOfPacket$.subscribe(value => {
-    //   // do some stuff with value
-    //   // when value is a string, it is NaN
-    //   console.log(value);
-    // });
-    
   }
 
   registerToggle() {
@@ -137,9 +125,6 @@ export class HomeComponent implements OnInit {
       console.log("res getUserSetting", res);
       this.userSetting = res;
       this.numbersOfCigarettes = res.numbersOfCigarettes;
-      //this.lastSmokeDate = res.lastSmokeDate;
-      
-      //this.priceOfPacket$.next();
       this.priceOfPacket = res.priceOfPacket;
       this.yearsOfSmoking = res.yearsOfSmoking;
       this.motivation = res.motivation;
@@ -164,10 +149,10 @@ export class HomeComponent implements OnInit {
       
       this.numbersOfCigarettesAll = this.diff*this.numbersOfCigarettes;
       this.profit = this.diff*this.numbersOfCigarettes*this.priceOfPacket/20;
-      //console.log(this.profit);
+      
       
       this.lifeExpand = Math.round(this.numbersOfCigarettesAll*11/60/24);
-      //console.log(this.priceOfPacket)
+      
 
     })}; 
 
@@ -183,31 +168,6 @@ export class HomeComponent implements OnInit {
 
 }
 
-  
-  
-      
-         
-  
-  // }
-
-  // this._settings.editParameter('category', result).subscribe(
-  //   (res) => {
-  //     this.projectCostCategory = this.projectCostCategory.map((category) =>
-  //       category.Id === res.Id ? (category = res) : category,
-  //     );
-  //     this.costCategory = new MatTableDataSource<iProjectCostCategory>(this.projectCostCategory);
-  //     this._global.showSnackResponseMsg('global.snackBar.editSuccess');
-  //   },
-
-  // private getUserSetting(): void {
-  //   this._service.getById(2).subscribe((res: UserSetting) => 
-  //   { 
-  //     console.log(res);
-  //     this.userSetting = res;
-  //     this.profileForm.patchValue(res);
-  //     console.log(this.profileForm.get('lastSmokeDate').value);
-  //     this.profileForm.get('lastSmokeDate').patchValue(this.formatDate(res.lastSmokeDate));
-  //   });
   
 
 

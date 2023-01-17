@@ -26,7 +26,6 @@ namespace API.Controllers
          [HttpGet, Route("listByUserId")]
         public async Task<ActionResult> ListByUserIdAsync(int userId)
         {
-            //ValidateStrings(companyId);
             return Ok(await HistoryManager.ListByUserIdAsync(userId));
         }
 

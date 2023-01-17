@@ -48,7 +48,7 @@ export class QuizComponent implements OnInit {
     },
     {
       number: 6,
-      content:"Czy mogłbyś/mógłabyś liczyć na pomoc rodziny, przyjaciół itp. Gdybyś chciał/a rzucić palenie?",
+      content:"Czy mogłbyś/mógłabyś liczyć na pomoc rodziny, przyjaciół itp. gdybyś chciał/a rzucić palenie?",
       name:"question6",
     },
     {
@@ -73,7 +73,7 @@ export class QuizComponent implements OnInit {
     },
     {
       number: 11,
-      content:"Czy wiesz na jakie pokusy i trudności będziesz narażony(a) w okresie abstynencji?",
+      content:"Czy wiesz na jakie pokusy i trudności będziesz narażony/a w okresie abstynencji?",
       name:"question11",
     },{
       number: 12,
@@ -96,7 +96,6 @@ export class QuizComponent implements OnInit {
   onSubmit(){
     
     this.getScore(this.answer);
-    console.log(this.quizScore);
     this._service.UpdateUserQuizScore({quizScore: this.quizScore, id: JSON.parse(localStorage.getItem('user')).id}).subscribe(
       (res: UserSetting) => 
     { 

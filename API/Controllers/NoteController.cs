@@ -25,15 +25,12 @@ namespace API.Controllers
         [HttpPut, Route("update")]
         public async Task<ActionResult> UpdateUserSettingAsync([FromBody] NoteDto model)
         {
-            //ValidateStrings(model.Id);
-
             return Ok(await NoteManager.UpdateAsync(model));
         }
 
          [HttpGet, Route("listByUserId")]
         public async Task<ActionResult> ListByUserIdAsync(int userId)
         {
-            //ValidateStrings(companyId);
             return Ok(await NoteManager.ListByUserIdAsync(userId));
         }
         

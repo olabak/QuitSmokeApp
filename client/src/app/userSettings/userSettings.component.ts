@@ -4,6 +4,7 @@ import { User } from '../_models/user';
 import { UserSetting } from '../_models/userSettings';
 import { AccountService } from '../_services/account.service';
 import { UserSettingsService } from '../_services/userSettings.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -18,13 +19,11 @@ export class ProfileComponent implements OnInit {
   
   
 
-  constructor(private _service: UserSettingsService, private accountService: AccountService) { }
+  constructor(private _service: UserSettingsService, private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
-    this.initializeForm(); //1
-    this.getUserSetting(); //3
-
-    console.log("text:", this.userSetting) //2
+    this.initializeForm(); 
+    this.getUserSetting(); 
   }
   
   onSubmit() {
@@ -34,17 +33,15 @@ export class ProfileComponent implements OnInit {
       this.userSetting = res;
       this.profileForm.patchValue(res);
       this.profileForm.get('lastSmokeDate').patchValue(this.formatDate(res.lastSmokeDate));
+      this.router.navigate(['motivation']);
     });
   }
 
-
-  //brak 
   private getUserSetting(): void {
     this._service.getById(JSON.parse(localStorage.getItem('user')).id).subscribe((res: UserSetting) => 
     { 
       this.userSetting = res;
       this.profileForm.patchValue(res);
-      //this.profileForm.get('lastSmokeDate').patchValue(this.formatDate(res.lastSmokeDate));
       console.log(this.profileForm.get('lastSmokeDate').value);
     });
   }
@@ -70,11 +67,4 @@ private formatDate(date) {
   return [year, month, day].join('-');
 }
 
-// import * as moment from 'moment-timezone';
-// ...
-
-// this.dateAcquiredControl = new FormControl(
-//   moment(this.vehicle.dateAcquired).format(
-//     'YYYY-MM-DD'
-//   ), {
 }
